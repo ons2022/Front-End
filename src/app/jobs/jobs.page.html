@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-buttons class="backbtn" routerLink="/home" routerDirection="back" size="large">
+        <img src="../../assets/back-dark.svg" />
+        
+      </ion-buttons>
+      
+    </ion-buttons>
+    
+    <ion-buttons slot="end">
+      <ion-button class="notification">
+        <ion-icon name="notifications-outline" color="dark"  size="large"></ion-icon>
+      </ion-button>
+      <ion-button class="logout">
+        <ion-icon name="log-out-outline" color="dark" size="large"  ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+
+
+
+  <h1 class="title">JOBS  </h1>
+
+  <div class="search ion-padding">
+    <ion-item lines="none">
+      <ion-input placeholder="Search Your Product"></ion-input>
+      <ion-icon name="search-outline" slot="start"></ion-icon>
+    </ion-item>
+  </div>
+
+
+
+  <ion-card mode="ios"  *ngFor="let job of offre">
+    <ion-card-content>
+      
+      <div class="item-info">
+        
+        <div class="item-img">
+          <ion-img [src]=" job.imageEmploi"></ion-img>
+        </div>
+  
+        <p>  ID:{{ job.id}}</p>
+        <p>{{ job.nameEmploi}}</p>
+      
+  
+        <p>{{ job.dateEmploi}}</p>
+        <p>{{ job.annoceEmploi}}</p>
+        <p>{{ job.villeEmploi}}</p>
+
+        
+
+        <div class="qty-selector">
+          <ion-button fill="clear"routerLink="/addoffre">
+            >   ADD NEW ANNONCE  </ion-button>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  
+
+
+ </ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ion-padding container">
+   
+    <ion-buttons slot="start">
+      <ion-buttons class="backbtn" routerLink="/admin" routerDirection="back">
+        <img src="../../assets/back-dark.svg" />
+      </ion-buttons>
+    </ion-buttons>
+    <div class="form-container">
+      <h1>add member</h1>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label> 
+        
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"     (ionChange)="getemailUser(emailUser)" [(ngModel)]="emailUser"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">firstNameUser </ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required" (ionChange)="getfirstNameUser(firstNameUser )" [(ngModel)]="firstNameUser "></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">lastNameUser </ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required" (ionChange)="getlastNameUser(lastNameUser )" [(ngModel)]="lastNameUser  "></ion-input>
+      </ion-item>
+      <ion-item>
+     
+      
+        <ion-label position="floating">telUser </ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"  (ionChange)="gettelUser(telUser )" [(ngModel)]="telUser  "></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">dateOfBirth</ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"    (ionChange)="getdateOfBirth(dateOfBirth )" [(ngModel)]="dateOfBirth  "></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">adress</ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"   (ionChange)="getaddressUser(addressUser)" [(ngModel)]="addressUser"></ion-input>
+        <ion-icon  slot="end"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password"   placeholder="champ obligatoir"  required="required"   (ionChange)="getPassword(passwordUser )" [(ngModel)]="passwordUser "></ion-input>
+        <ion-icon name="eye" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-button (click)="signup()" expand="block" class="main-button">Add</ion-button>
+
+     
+    </div>
+  </div>
+</ion-content>
+
+

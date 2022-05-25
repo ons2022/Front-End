@@ -1,28 +1,253 @@
-ion-menu-button {
-  color: var(--ion-color-primary);
-}
-
-#container {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-#container a {
+body {
+  min-height: 100vh;
+}
+
+a {
   text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+h1,
+h2 {
+  color: #444;
+}
+
+h3 {
+  color: #999;
+}
+
+.btn {
+  background:#6b88c6;
+  color: white;
+  padding: 3px 20px;
+  text-align: center;
+  border-radius: 10px;//arrondi el bordure twali 
+
+}
+
+.btn:hover {
+  color: #5a88eb;
+  background: white;
+  padding: 3px 8px;
+  border: 2px solid#5a88eb;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 15px 10px;
+  border-bottom: 2px solid #999;
+}
+
+table {
+  padding: 10px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+.side-menu {
+  position: fixed;
+  background: #5a88eb;
+  width: 20vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-menu .brand-name {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-menu li {
+  font-size: 24px;
+  padding: 10px 40px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.container {
+  position: absolute;
+  right: 0;
+  width: 80vw;
+  height: 100vh;
+  background: #f1f1f1;
+}
+
+
+.container .header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80vw;
+  height: 10vh;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.container .header .nav {
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+.box.img {
+  border: 1px solid rgba(35, 217, 96, 0.902);
+  border-radius: 100px;
+  padding: 1px;
+  width: 60px;
+
+}
+.container .header .nav .search {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+}
+
+.search {
+  margin-bottom: 20px;
+
+  ion-item {
+      border-radius: 10px;
+      box-shadow: 0px 13px 30px 0px rgba(122, 129, 198, 0.09);//bow taa el recherche 
+      padding: 8px;
+
+      ion-icon {
+          margin-right: 16px; //taa el recherche 
+      }
+
+      ion-input {
+          padding-left: 10px !important;
+          border-left: 1px solid #F4F4F4;//el khat ta3 box recherche 
+      }
+  }
+}
+
+.container .header .nav .search button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+img {
+  border: 1px solid rgba(60, 36, 169, 0.902);
+  border-radius: 100px;
+  padding: 1px;
+  width: 60px;
+}
+
+
+
+
+
+.container .content .cards {
+  padding: 20px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
+
+
+.container .content .content-2 {
+  min-height: 60vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.container .content .content-2 .recent-payments {
+  min-height: 50vh;
+  flex: 5;
+  background: white;
+  margin: 0 25px 25px 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  flex-direction: column;
+}
+
+.container .content .content-2 .new-students {
+  flex: 2;
+  background: white;
+  min-height: 50vh;
+  margin: 0 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+@media screen and (max-width: 1050px) {
+  .side-menu li {
+      font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .side-menu li span {
+      display: none;
+  }
+  .side-menu {
+      align-items: center;
+  }
+  .side-menu li img {
+      width: 40px;
+      height: 40px;
+  }
+  .side-menu li:hover {
+      background: #39b5e6;
+      padding: 8px 38px;
+      border: 2px solid white;
+  }
+}
+
+@media screen and (max-width:536px) {
+  .brand-name h1 {
+      font-size: 16px;
+  }
+  .container .content .cards {
+      justify-content: center;
+  }
+  .side-menu li img {
+      width: 30px;
+      height: 30px;
+  }
+  .container .content .content-2 .recent-payments table th:nth-child(2),
+  .container .content .content-2 .recent-payments table td:nth-child(2) {
+      display: none;
+  }
 }

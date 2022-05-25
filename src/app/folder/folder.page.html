@@ -1,21 +1,188 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button><!--chitala3lek el menu ></!-->
+        <ion-icon name="menu-outline" ></ion-icon>
+      </ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="notification"routerLink="">
+        <ion-icon name="notifications-outline" color="dark" ></ion-icon>
+      
+        
+      </ion-button>
+      <ion-button class="notification"routerLink="/add-user">
+          <ion-icon name="add-circle-outline" color="dark" ></ion-icon>
+        
+          
+        </ion-button>
+ 
+      <ion-button class="login"routerLink="/login">
+        <ion-icon name="log-in-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+<div class="nav">
+          <div class="search">
+              <div class="search ion-padding">
+                  <ion-item lines="none">
+                    <ion-input placeholder="Search Your Product"></ion-input>
+                    <ion-icon name="search-outline" slot="start"></ion-icon>
+                  </ion-item>
+         </div>
+          
+      </div>
+  
+  <div class="content">
+      <div class="cards">
+          <div class="card">
+              <div class="box">
+                 
+
+          
+                  <h3>   <ion-icon name="checkbox-outline" size="large "  size="large "  routerLink="/categorie"></ion-icon> catégories</h3>  
+                
+              </div>
+              <div class="icon-case"  img src="">
+                 
+              </div>
+          </div>
+          <div class="card">
+              <div class="box">
+                 
+                  <h3> <ion-icon name="newspaper-outline" size="large "  routerLink="/membre" ></ion-icon> membres  </h3>
+              </div>
+              <div class="icon-case">
+                  
+              </div>
+          </div>
+          <div class="card">
+              <div class="box" img src="\assets\dashboard.png">
+                 
+                  <h3>  <ion-icon name="analytics-outline" size="large"  routerLink="/dashbord"></ion-icon> dashbord</h3>
+                  
+              </div>
+              <div class="icon-case">
+                  
+              </div>
+          </div>
+          <div class="card">
+              <div class="box">
+                  
+                  <h3> <ion-icon name="list-circle-outline" size="large "></ion-icon> annonces </h3>
+              </div>
+              <div class="icon-case">
+                  
+              </div>
+          </div>
+      </div>
+
+
+  </div>    
+      <div class="content-2">
+          <div class="recent-payments">
+              <div class="title">
+                  <h2>Recently added annonce</h2>
+                  <a href="#" class="btn">View All</a>
+              </div>
+              <container>
+              <table>
+                  <tr>
+                      <th>Membre</th>
+                      <th>Title</th>
+                      <th>Date</th>
+                      <th>Option</th>
+                  </tr>
+                  <tr>
+                      <td>John Doe</td>
+                      <td>St. James College</td>
+                      <td>10/05/2020</td>
+                      <td><a href="#" class="btn">View</a></td>
+                  </tr>
+                  <tr>
+                      <td>John Doe</td>
+                      <td>St. James College</td>
+                      <td>$120</td>
+                      <td><a href="#" class="btn">View</a></td>
+                  </tr>
+                  <tr>
+                      <td>John Doe</td>
+                      <td>St. James College</td>
+                      <td>$120</td>
+                      <td><a href="#" class="btn">View</a></td>
+                  </tr>
+                  <tr>
+                      <td>John Doe</td>
+                      <td>St. James College</td>
+                      <td>$120</td>
+                      <td><a href="#" class="btn">View</a></td>
+                  </tr>
+                  <tr>
+                      <td>John Doe</td>
+                      <td>St. James College</td>
+                      <td>$120</td>
+                      <td><a href="#" class="btn">View</a></td>
+                  </tr>
+                  <tr>
+                      <td>John Doe</td>
+                      <td>St. James College</td>
+                      <td>$120</td>
+                      <td><a href="#" class="btn">View</a></td>
+                  </tr>
+              </table>
+          </container>
+          </div>
+         <container>        
+             <td></td>
+             <td></td>
+         </container>
+          <div class="new-students">
+              <container>
+              <div class="title">
+                  <h2>New membre validation </h2>
+                  <a href="#" class="btn">View All</a>
+              </div>
+              
+
+
+
+
+
+
+
+
+
+
+              <table>
+                  <tr>
+                      <th>Profile</th>
+                      <th>Email</th>
+                      
+                      <th>option</th>
+                  </tr>
+                  <tr  *ngFor="let ListOfUser of user">
+                      <td><img src="assets\valideruser.png" alt="" routerLink="/user"></td>
+                      <p>{{ListOfUser.emailUser}}</p>
+                      <td><ion-icon name="checkmark-done-outline" size="large"  (click)="activate(ListOfUser.emailUser)" ></ion-icon></td>
+                      <td><ion-icon name="trash-outline" size="large"  (click)="delete (ListOfUser.emailUser)"></ion-icon></td>
+                     
+                        
+                  </tr>
+                  
+                  
+                     
+                      
+                 
+
+              </table>
+          </container>
+          </div>
+      </div>
+  
+</div>
 </ion-content>

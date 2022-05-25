@@ -1,0 +1,69 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ion-padding container">
+   
+    <ion-buttons slot="start">
+      <ion-buttons class="backbtn" routerLink="/admin" routerDirection="back">
+        <img src="../../assets/back-dark.svg" />
+      </ion-buttons>
+    </ion-buttons>
+    <div class="form-container">
+      <h1> ADD JOB OPPORTIUNITY IN TUNISIA  </h1>
+      <ion-item>
+        <ion-label position="floating">title of the job </ion-label> 
+        
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"     (ionChange)="getEmploititle(nameEmploi)" [(ngModel)]="nameEmploi"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"> city of the job </ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required" (ionChange)="getEmploicity(annoceEmploi )" [(ngModel)]="annoceEmploi "></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"> localisation of the job </ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required" (ionChange)="getEmploiville(villeEmploi)" [(ngModel)]="villeEmploi"></ion-input>
+      </ion-item>
+     
+      <ion-item>
+        <ion-label position="floating">  </ion-label>
+        
+        <form action="/action_page.php">
+          <label for="img">Select image:</label>
+          <input type="file" id="img" name="img" accept="image/*">
+         
+        </form>
+        
+        
+      </ion-item>
+    
+     
+      
+        
+      <ion-item>
+        <ion-label position="floating">
+    date </ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"   (ionChange)="getEmploidatedate(dateEmploi)" [(ngModel)]="dateEmploi"></ion-input>
+        <ion-icon  slot="end"></ion-icon>
+      </ion-item>
+     
+
+
+      <ion-item>
+        <ion-label position="floating">
+    descreption of the job  </ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"   (ionChange)="getEmploidescreption(descreption )" [(ngModel)]="descreption "></ion-input>
+        <ion-icon  slot="end"></ion-icon>
+      </ion-item>
+        
+   
+   
+
+      <ion-button (click)="add()" expand="block" class="main-button">ADD</ion-button>
+
+     
+    </div>
+  </div>
+</ion-content>
+

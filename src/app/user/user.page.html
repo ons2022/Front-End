@@ -1,0 +1,52 @@
+
+<ion-content>
+
+  <div class="card-container" *ngFor="let ListOfUser of user">
+    <ion-icon ios="ios-arrow" md="md-arrow"></ion-icon>
+    <ion-buttons slot="start">
+      <ion-buttons class="backbtn" routerLink="/admin" routerDirection="back" size="large">
+        <img src="../../assets/back-dark.svg" />
+      </ion-buttons>
+    </ion-buttons>
+    <span class="pro">User</span>
+    <img class="round" src="\assets\user1.jpg" alt="user" />
+  
+    <h3>
+      {{ListOfUser.firstNameUser}}
+        {{ListOfUser.lastNameUser}}
+      </h3>
+    <h6>   
+       {{ListOfUser.emailUser}}</h6>
+    <p> 
+      {{ListOfUser.addressUser}}</p>
+  
+        <p>{{ListOfUser.telUser}}</p>
+    <div class="buttons">
+      <button class="primary">
+        edit user
+      </button>
+      <button class="primary ghost">
+        Delete user
+      </button>
+    
+    </div>
+    <div class="skills">
+      <h6>Informations </h6>
+      <!-- end profile <dl >
+        
+     
+       <dt>dateOfBirth</dt>
+          <dd>{{ListOfUser.dateOfBirth}}</dd>
+       
+          <dt>passwordUser</dt>
+          <dd>{{ListOfUser.passwordUser}}</dd>
+        
+          
+      </dl>-->
+    </div>
+     
+  
+  </div>
+  </ion-content>
+  
+  

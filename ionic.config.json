@@ -1,5 +1,7 @@
 {
   "name": "annancePfe",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

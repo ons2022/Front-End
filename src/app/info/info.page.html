@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-buttons class="backbtn" routerLink="/home" routerDirection="back" size="large">
+        <img src="../../assets/back-dark.svg" />
+        
+      </ion-buttons>
+      
+    </ion-buttons>
+    
+    <ion-buttons slot="end">
+      <ion-button class="notification">
+        <ion-icon name="notifications-outline" color="dark"  size="large"></ion-icon>
+      </ion-button>
+      <ion-button class="logout">
+        <ion-icon name="log-out-outline" color="dark" size="large"  ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h1 class="title">MATERIEL INFORMATIQUE </h1>
+  
+    <div class="search ion-padding">
+      <ion-item lines="none">
+        <ion-input placeholder="Search Your Product"></ion-input>
+        <ion-icon name="search-outline" slot="start"></ion-icon>
+      </ion-item>
+    </div>
+    
+  
+  <ion-card mode="ios"  *ngFor="let materiel of info ">
+    <ion-card-content>
+      <div class="item-img">
+        <ion-img [src]="materiel.imageMatrInformatique"></ion-img>
+      </div>
+
+      <div class="item-info">
+        <p> ID :{{materiel.id}}</p>
+        <p>{{materiel.nameMatrInformatique}}</p>
+  
+        <p>{{materiel.priceMatrInformatique}}DT</p>
+       
+        <p>{{materiel.dateMatrInformatique}}</p>
+        <p>{{materiel.annoceMatrInformatique}}</p>
+        <p>{{materiel.villeMatrInformatique}}</p>
+
+        
+
+        <div class="qty-selector">
+          <ion-button fill="clear">   ADD NEW   </ion-button>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  
+  <ion-list>
+
+
+
+
+  </ion-list>
+</ion-content>

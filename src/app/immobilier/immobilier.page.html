@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-buttons class="backbtn" routerLink="/home" routerDirection="back" size="large">
+        <img src="../../assets/back-dark.svg" />
+        
+      </ion-buttons>
+      
+    </ion-buttons>
+    
+    <ion-buttons slot="end">
+      <ion-button class="notification">
+        <ion-icon name="notifications-outline" color="dark"  size="large"></ion-icon>
+      </ion-button>
+      <ion-button class="logout">
+        <ion-icon name="log-out-outline" color="dark" size="large"  ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+
+
+
+  <h1 class="title">immobilier </h1>
+
+  <div class="search ion-padding">
+    <ion-item lines="none">
+      <ion-input placeholder="Search Your Product"></ion-input>
+      <ion-icon name="search-outline" slot="start"></ion-icon>
+    </ion-item>
+  </div>
+
+
+
+  <ion-card mode="ios"  *ngFor="let immobilier of immob">
+    <ion-card-content>
+      
+      <div class="item-info">
+        <p> ID :{{immobilier.id}}</p>
+        <p>{{immobilier.nameImmobilier}}</p>
+        <div class="item-img">
+          <ion-img [src]="immobilier.imageImmobilier"></ion-img>
+        </div>
+  
+        <p>{{immobilier.priceImmobilier}}</p>
+        <p>{{immobilier.dateImmobilier}}</p>
+        <p>{{immobilier.annoceImmobilier}}</p>
+        <p>{{immobilier.villeImmobilier}}</p>
+
+        
+
+        <div class="qty-selector">
+          <ion-button fill="clear"   routerLink="/addimmobilier" >   ADD NEW ANNONCE  </ion-button>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  
+
+
+ </ion-content>

@@ -1,0 +1,74 @@
+<ion-header>
+  
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ion-padding container">
+   
+    <ion-buttons slot="start">
+      <ion-buttons class="backbtn" routerLink="/admin" routerDirection="back">
+        <img src="../../assets/back-dark.svg" />
+      </ion-buttons>
+    </ion-buttons>
+    <div class="form-container">
+      <h1>add immobilier</h1>
+      <ion-item>
+        <ion-label position="floating">id</ion-label> 
+        
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"     (ionChange)="getemailUser(emailUser)" [(ngModel)]="emailUser"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"> nameImmobilier</ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required" (ionChange)="getfirstNameUser(firstNameUser )" [(ngModel)]="firstNameUser "></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"> availability</ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required" (ionChange)="getlastNameUser(lastNameUser )" [(ngModel)]="lastNameUser  "></ion-input>
+      </ion-item>
+     
+      <ion-item>
+        <ion-label position="floating">  </ion-label>
+        
+        <form action="/action_page.php">
+          <label for="img">Select image:</label>
+          <input type="file" id="img" name="img" accept="image/*">
+         
+        </form>
+        
+        
+      </ion-item>
+      <ion-item>
+     
+      
+        <ion-label position="floating"> priceImmobilier</ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"  (ionChange)="gettelUser(telUser )" [(ngModel)]="telUser  "></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">
+    dateImmobilier</ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"   (ionChange)="getaddressUser(addressUser)" [(ngModel)]="addressUser"></ion-input>
+        <ion-icon  slot="end"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">
+    annoceImmobilier</ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"   (ionChange)="getaddressUser(addressUser)" [(ngModel)]="addressUser"></ion-input>
+        <ion-icon  slot="end"></ion-icon>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label position="floating">
+    villeImmobilier</ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"   (ionChange)="getaddressUser(addressUser)" [(ngModel)]="addressUser"></ion-input>
+        <ion-icon  slot="end"></ion-icon>
+      </ion-item>
+   
+   
+
+      <ion-button (click)="signup()" expand="block" class="main-button">ADD</ion-button>
+
+     
+    </div>
+  </div>
+</ion-content>
