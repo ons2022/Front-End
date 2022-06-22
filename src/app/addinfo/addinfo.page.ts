@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddinfoPage implements OnInit {
 
-  constructor() { }
+  constructor(private storage: Storage,) { 
+    
+  }
 
   ngOnInit() {
+    
   }
 
 }

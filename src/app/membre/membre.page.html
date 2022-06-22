@@ -1,11 +1,16 @@
 <ion-header>
+  
   <ion-toolbar>
+
+  
+
     <ion-buttons slot="start">
-      <ion-menu-button><!chitala3lek el menu >
-        <ion-icon name="menu-outline" ></ion-icon>
+      <ion-menu-button>
+        <ion-icon  name="menu-outline" ></ion-icon>
       </ion-menu-button>
   
     </ion-buttons>
+    
     <ion-buttons slot="end">
       <ion-button class="notification"routerLink="" size="large">
         
@@ -13,27 +18,29 @@
       
         
       </ion-button>
-      <ion-icon name="arrow-undo-outline" routerLink="/admin" color="dark"  size="large"></ion-icon>
+      <ion-icon name="arrow-undo-outline" routerLink="/folder/home" color="dark"  size="small"></ion-icon>
       
    
  
-      <ion-button class="login"routerLink="/login">
-        <ion-icon name="log-in-outline" color="dark" size="large"></ion-icon>
+      <ion-button class="login"routerLink="/folder/home">
+        <ion-icon name="log-in-outline" color="dark" size="small"></ion-icon>
       </ion-button>
     </ion-buttons>
+    <div class="search ion-padding">
+      <ion-item lines="none">
+        <ion-input placeholder="Search"></ion-input>
+        <ion-icon name="search-outline" slot="start"></ion-icon>
+      </ion-item>
+    </div>
     
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen="true">
-  <h1 class="title">Member List</h1>
   
-  <div class="search ion-padding">
-    <ion-item lines="none">
-      <ion-input placeholder="Search member"></ion-input>
-      <ion-icon name="search-outline" slot="start"></ion-icon>
-    </ion-item>
-  </div>
+  
+ 
+ 
   
     
   
@@ -41,37 +48,46 @@
       <ion-card-content>
         
         <div class="item-info">
-          <p> {{membre.firstNameUser}}</p>
-          <p>{{membre.lastNameUser}}</p>
-          <p>{{membre.dateOfBirth}}</p>
-          <p>{{membre.addressUser}}DT</p>
+          <p> <ion-icon name="person-circle-outline"></ion-icon>
+            NAME :  {{membre.firstNameUser}}   {{membre.lastNameUser}}</p>
+          
+          <p> <ion-icon name="calendar-outline"></ion-icon>
+            DATE OF BIRTH  : {{membre.dateOfBirth}}</p>
+          <p> ADRESS : {{membre.addressUser}}DT</p>
          
-          <p>{{membre.telUser}}</p>
-          <p>{{membre.emailUser}}</p>
+          <p> <ion-icon name="phone-portrait-outline"></ion-icon>
+            PHONE NUMBRE :{{membre.telUser}}</p>
+          <p> <ion-icon name="mail-outline"></ion-icon>
+            EMAIL : {{membre.emailUser}}</p>
          
   
           
   
           <div class="qty-selector">
-            <ion-button fill="clear">   Delete membre  </ion-button>
-            <ion-button fill="clear">   Edit membre  </ion-button>
+            <ion-button color="danger" fill="clear">   DELETE MEMBRE <ion-icon name="trash-sharp"></ion-icon> </ion-button>
+          
           </div>
         </div>
       </ion-card-content>
     </ion-card>
   <ion-list>
 
-
-
-
-  </ion-list>
-
-  
-  
-
-
-  
-
-
+</ion-list>
 
 </ion-content>
+<script>
+  const searchbar = document.querySelector('ion-searchbar');
+  const items = Array.from(document.querySelector('ion-list').children);
+
+  searchbar.addEventListener('ionInput', handleInput);
+
+  function handleInput(event) {
+    const query = event.target.value.toLowerCase();
+    requestAnimationFrame(() => {
+      items.forEach((p) => {
+        const shouldShow = p.textContent.toLowerCase().indexOf(query) > -1;
+        p.style.display = shouldShow ? 'block' : 'none';
+      });
+    });
+  }
+</script>

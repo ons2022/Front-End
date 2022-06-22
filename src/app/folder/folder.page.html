@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button><!--chitala3lek el menu ></!-->
+      <ion-menu-button>
         <ion-icon name="menu-outline" ></ion-icon>
       </ion-menu-button>
     </ion-buttons>
@@ -41,18 +41,13 @@
   <div class="content">
       <div class="cards">
           <div class="card">
-              <div class="box">
-                 
-
-          
-                  <h3>   <ion-icon name="checkbox-outline" size="large "  size="large "  routerLink="/categorie"></ion-icon> catégories</h3>  
-                
+              <div class="box" routerLink="/catadmin">
+                  <h3>   <ion-icon name="checkbox-outline" size="large "  size="large "  routerLink="/catadmin"></ion-icon> catégories</h3>  
               </div>
               <div class="icon-case"  img src="">
-                 
               </div>
           </div>
-          <div class="card">
+          <div class="card" routerLink="/membre">
               <div class="box">
                  
                   <h3> <ion-icon name="newspaper-outline" size="large "  routerLink="/membre" ></ion-icon> membres  </h3>
@@ -61,20 +56,17 @@
                   
               </div>
           </div>
-          <div class="card">
+          <div class="card"   routerLink="/dashbord">
               <div class="box" img src="\assets\dashboard.png">
-                 
                   <h3>  <ion-icon name="analytics-outline" size="large"  routerLink="/dashbord"></ion-icon> dashbord</h3>
-                  
               </div>
-              <div class="icon-case">
-                  
+              <div class="icon-case">    
               </div>
           </div>
-          <div class="card">
+
+          <div class="card"   routerLink="/adminaddannonce">
               <div class="box">
-                  
-                  <h3> <ion-icon name="list-circle-outline" size="large "></ion-icon> annonces </h3>
+                  <h3> <ion-icon name="list-circle-outline" size="large "></ion-icon>  add annonces </h3>
               </div>
               <div class="icon-case">
                   
@@ -90,52 +82,7 @@
                   <h2>Recently added annonce</h2>
                   <a href="#" class="btn">View All</a>
               </div>
-              <container>
-              <table>
-                  <tr>
-                      <th>Membre</th>
-                      <th>Title</th>
-                      <th>Date</th>
-                      <th>Option</th>
-                  </tr>
-                  <tr>
-                      <td>John Doe</td>
-                      <td>St. James College</td>
-                      <td>10/05/2020</td>
-                      <td><a href="#" class="btn">View</a></td>
-                  </tr>
-                  <tr>
-                      <td>John Doe</td>
-                      <td>St. James College</td>
-                      <td>$120</td>
-                      <td><a href="#" class="btn">View</a></td>
-                  </tr>
-                  <tr>
-                      <td>John Doe</td>
-                      <td>St. James College</td>
-                      <td>$120</td>
-                      <td><a href="#" class="btn">View</a></td>
-                  </tr>
-                  <tr>
-                      <td>John Doe</td>
-                      <td>St. James College</td>
-                      <td>$120</td>
-                      <td><a href="#" class="btn">View</a></td>
-                  </tr>
-                  <tr>
-                      <td>John Doe</td>
-                      <td>St. James College</td>
-                      <td>$120</td>
-                      <td><a href="#" class="btn">View</a></td>
-                  </tr>
-                  <tr>
-                      <td>John Doe</td>
-                      <td>St. James College</td>
-                      <td>$120</td>
-                      <td><a href="#" class="btn">View</a></td>
-                  </tr>
-              </table>
-          </container>
+           
           </div>
          <container>        
              <td></td>
@@ -147,29 +94,18 @@
                   <h2>New membre validation </h2>
                   <a href="#" class="btn">View All</a>
               </div>
-              
-
-
-
-
-
-
-
-
-
-
               <table>
                   <tr>
                       <th>Profile</th>
                       <th>Email</th>
-                      
+        
                       <th>option</th>
                   </tr>
                   <tr  *ngFor="let ListOfUser of user">
                       <td><img src="assets\valideruser.png" alt="" routerLink="/user"></td>
                       <p>{{ListOfUser.emailUser}}</p>
                       <td><ion-icon name="checkmark-done-outline" size="large"  (click)="activate(ListOfUser.emailUser)" ></ion-icon></td>
-                      <td><ion-icon name="trash-outline" size="large"  (click)="delete (ListOfUser.emailUser)"></ion-icon></td>
+                      <td><ion-icon name="trash-outline" size="large"  (click)="delete(ListOfUser.emailUser)"></ion-icon></td>
                      
                         
                   </tr>

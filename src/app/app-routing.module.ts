@@ -4,17 +4,14 @@ import { HttpClientModule } from '@angular/common/http';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'folder/',
     pathMatch: 'full'
   },
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
-  {
-    path: 'add-user',
-    loadChildren: () => import('./add-user/add-user.module').then( m => m.AddUserPageModule)
-  },
+  
   {
     path: 'addimmobilier',
     loadChildren: () => import('./addimmobilier/addimmobilier.module').then( m => m.AddimmobilierPageModule)
@@ -79,6 +76,35 @@ const routes: Routes = [
   {
     path: 'voiture',
     loadChildren: () => import('./voiture/voiture.module').then( m => m.VoiturePageModule)
+  },
+  
+  {
+    path: 'add-user',
+    loadChildren: () => import('./add-user/add-user.module').then( m => m.AddUserPageModule)
+  },
+  {
+    path: 'annoncelist',
+    loadChildren: () => import('./annoncelist/annoncelist.module').then( m => m.AnnoncelistPageModule)
+  },
+  {
+    path: 'welkom',
+    loadChildren: () => import('./welkom/welkom.module').then( m => m.WelkomPageModule)
+  },
+  {
+    path: 'catadmin',
+    loadChildren: () => import('./catadmin/catadmin.module').then( m => m.CatadminPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'adminaddannonce',
+    loadChildren: () => import('./adminaddannonce/adminaddannonce.module').then( m => m.AdminaddannoncePageModule)
+  },
+  {
+    path: 'addcategrie',
+    loadChildren: () => import('./addcategrie/addcategrie.module').then( m => m.AddcategriePageModule)
   }
 ];
 

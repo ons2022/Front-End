@@ -1,13 +1,21 @@
 <ion-header>
   <ion-toolbar>
+    
+
     <ion-buttons slot="start">
-      <ion-menu-button><!chitala3lek el menu >
+      <ion-menu-button>
         <ion-icon name="menu-outline" ></ion-icon>
       </ion-menu-button>
     </ion-buttons>
+    
     <ion-buttons slot="end">
       <ion-button class="notification"routerLink="/login">
         <ion-icon name="notifications-outline" color="dark" ></ion-icon>
+        <span>&nbsp;</span>
+      </ion-button>
+
+      <ion-button class="back"routerLink="/folder/home">
+        <ion-icon name="arrow-undo-outline"></ion-icon>
         <span>&nbsp;</span>
       </ion-button>
       <ion-button class="add"routerLink="/signup">
@@ -22,32 +30,17 @@
 </ion-header>
 
 <ion-content>
-  <div class="profile">
-    <figure>
-      <img src="\assets\immo1.webp" alt="" />
-    </figure>
-    <header>
-      <h1>IMMOBILIER 
-        <small></small></h1>
-    </header>
-    
-    <div class="toggle"  routerLink="/immobilier">
-      <input type="checkbox" class="view_details" id="view_details">
-      <label for="view_details" title="tap here to view full profile">☰</label>    
-    </div>
-   
-         
-  
-  </div> 
+
   
 
  
-  <div class="profile">
+  <div class="profile"  routerLink="/voiture">
     <figure>
       <img src="\assets\auto4.png" alt="" />
     </figure>
     <header>
-      <h1>AUTOMOBILE
+      <h1>CARS OFFRE
+      
        </h1>
     </header>
     
@@ -60,12 +53,12 @@
   
   </div> <!-- end profile -->
   
-  <div class="profile">
+  <div class="profile" routerLink="/info">
     <figure>
       <img src="\assets\info.png" alt="" />
     </figure>
     <header>
-      <h1>MATERIEL INFORMATIQUE 
+      <h1>COMPUTER  EQUIPMENT 
         </h1>
     </header>
     
@@ -77,16 +70,52 @@
    
   
   </div> <!-- end profile -->
-  <div class="profile">
+  <div class="profile" routerLink="/jobs">
     <figure>
       <img src="\assets\JOB4.png" alt="" />
     </figure>
     <header>
-      <h1>OFFRES D'EMLPOI
+      <h1> JOB OPPORTIUNITY 
         </h1>
     </header>
     
-    <div class="toggle" routerLink="/">
+    <div class="toggle" >
+      
+      <input type="checkbox" class="view_details" id="view_details">
+      <label for="view_details" title="tap here to view full profile">☰</label>    
+    </div>
+   
+  
+  </div>
+
+  <div class="profile" routerLink="/immobilier">
+    <figure>
+      <img src="\assets\immo1.webp" alt=""  routerLink="/immobilier">
+    </figure>
+    <header>
+      <h1>REAL ESTATE OFFER 
+        </h1>
+    </header>
+    
+    <div class="toggle"  >
+      <input type="checkbox" class="view_details" id="view_details">
+      <label for="view_details" title="tap here to view full profile">☰</label>    
+    </div>
+   
+         
+  
+  </div> 
+
+  <div class="profile" routerLink="">
+    <figure>
+      <img src="\assets\autre3.png" alt="" />
+    </figure>
+    <header>
+      <h1>OTHER CATEGORY 
+        </h1>
+    </header>
+    
+    <div class="toggle" >
       
       <input type="checkbox" class="view_details" id="view_details">
       <label for="view_details" title="tap here to view full profile">☰</label>    

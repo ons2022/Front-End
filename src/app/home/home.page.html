@@ -1,7 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    
     <ion-buttons slot="start">
-      <ion-menu-button><!chitala3lek el menu >
+      <ion-menu-button *ngIf="menu!=0">
         <ion-icon name="menu-outline" ></ion-icon>
       </ion-menu-button>
     </ion-buttons>
@@ -22,13 +23,16 @@
 </ion-header>
 
 <ion-content>
+
   <div class="search ion-padding">
     <ion-item lines="none">
-      <ion-input placeholder="Search Your Product"></ion-input>
-      <!-- <ion-icon name="search-outline" slot="start"
-      [(ngModel)]="searchTitle"></ion-icon> -->
+      <ion-input placeholder="Search"></ion-input>
+      <ion-icon name="search-outline" slot="start"></ion-icon>
     </ion-item>
   </div>
+
+  
+  
   <div *ngFor="let voiture of neufs">
     
   
@@ -36,57 +40,123 @@
 
   <div class="title ion-padding">
     <h2>Categories</h2>
-    <p>See all</p>
+    
   </div>
+
 
   <div class="category-slider ion-padding-start">
     <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
-      <ion-slide *ngFor="let category of categories">
-        <ion-col class="ion-text-left" routerLink="/voiture"   routerDirection="forward">
+     
+
+
+      <ion-slide >
+
+        <ion-col class="ion-text-left" routerLink="/info"   routerDirection="">
          
-          <h4>{{ category.name }}</h4>
           
-          <img src="{{ category.image }}"  routerlink=''/>
-          <div class="color-overlay"></div>
+          <img src="/assets/categories/soo.jpg"  />
+          
+          <div class=""></div>
         </ion-col>
+
       
       </ion-slide>
-    </ion-slides>
-  </div>
 
-  <div class="title ion-padding">
-    <h2 class="font-bold">Featured</h2>
-    <p>See all</p>
-  </div>
 
-  <div class="product-slider ion-padding-start">
-    <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
-      <ion-slide *ngFor="let product of featuredProducts">
-        <ion-col class="ion-text-left" routerLink="/item-details"  routerDirection="forward">
-          <img src="{{ product.image }}" />
-          <p>${{ product.price }}</p>
-          <h6>{{ product.name }}</h6>
+      <ion-slide >
+
+        <ion-col class="ion-text-left" routerLink="/voiture"   routerDirection="">
+         
+          
+          <img src="/assets/categories/voiture22.png"  />
+          
+          <div class=""></div>
         </ion-col>
+
+      
       </ion-slide>
+
+
+      <ion-slide >
+
+        <ion-col class="ion-text-left" routerLink="/jobs "   routerDirection="">
+         
+          
+          <img src="/assets/categories/offremplode.png"  />
+          
+          <div class=""></div>
+        </ion-col>
+
+      
+      </ion-slide>
+
+      <ion-slide >
+
+        <ion-col class="ion-text-left" routerLink="/immobilier"   routerDirection="">
+         
+          
+          <img src="/assets/categories/immobilier22.png"  />
+          
+          <div class=""></div>
+        </ion-col>
+
+      
+      </ion-slide>
+
+
     </ion-slides>
   </div>
 
   <div class="title ion-padding">
-    <h2 class="font-bold">Best Sell</h2>
-    <p>See all</p>
+    <h2 class="font-bold">ANNONCE</h2>
+    <div  routerLink="/categorie"   >
+    <p  > See all   </p> </div>
   </div>
 
   <div class="product-slider ion-padding-start">
     <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
-      <ion-slide *ngFor="let product of bestSellProducts">
-        <ion-col class="ion-text-left" routerLink="/item-details" routerDirection="forward">
-          <img src="{{ product.image }}" />
-          <p>${{ product.price }}</p>
-          <h6>{{ product.name }}</h6>
+      <ion-slide >
+        <ion-col class="ion-text-left">
+            <div >
+          <a href="https://immobiliere.tn/annonces/details/villa-a-louer-a-gammarth"><img src="\assets\immo.png" alt="Steak" style="width:100%" ></a>
+          
+          
+          </div>
+         
         </ion-col>
         
       </ion-slide>
+
+      <ion-slide >
+        <ion-col> 
+          <a   href="https://www.affariyet.com/clavier-souris/19692-souris-gamer-tinji-tj-8.html"><img src="\assets\sourie.png" alt="Steak" style="width:100%" ></a>
+        
+        </ion-col>
+      </ion-slide>
+
+        <ion-slide >
+          <ion-col>
+             <a href="https://www.automobile.tn/fr/neuf/skoda/kodiaq"><img src="\assets\auto40.png" alt="Steak" style="width:100%" ></a>
+          </ion-col>
+        </ion-slide>
+      
+
+
+        <ion-slide >
+          <ion-col>
+            <a href="https://afariat.com/annonce-%C3%A0-tunis/Emploi-affaires-et-services/recrutement-des-teleprospecteurs-62a0588cbabd4.html"><img src="\assets\centre.png" alt="Steak" style="width:100%" ></a> 
+          </ion-col>
+        </ion-slide>
+
+
     </ion-slides>
+
+    
+    
   </div>
+
+  
+
+  
 </ion-content>
 

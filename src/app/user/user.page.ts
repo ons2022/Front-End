@@ -24,5 +24,10 @@ export class UserPage implements OnInit {
     console.log(data);
     this.user=data;
   })}
+  getDate(datepar){
 
+    var dateParts = datepar.split("-");
+    var date = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
+    return date;
+ }
 }

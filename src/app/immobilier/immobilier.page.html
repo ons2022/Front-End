@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-buttons class="backbtn" routerLink="/home" routerDirection="back" size="large">
+      <ion-buttons class="backbtn" routerLink="/categorie" routerDirection="back" size="large">
         <img src="../../assets/back-dark.svg" />
         
       </ion-buttons>
@@ -23,7 +23,7 @@
 
 
 
-  <h1 class="title">immobilier </h1>
+  <h1 class="title"> </h1>
 
   <div class="search ion-padding">
     <ion-item lines="none">
@@ -33,7 +33,7 @@
   </div>
 
 
-
+  <virtual-scroll-element class="ion-content-scroll-host"></virtual-scroll-element>
   <ion-card mode="ios"  *ngFor="let immobilier of immob">
     <ion-card-content>
       
@@ -55,6 +55,10 @@
           <ion-button fill="clear"   routerLink="/addimmobilier" >   ADD NEW ANNONCE  </ion-button>
         </div>
       </div>
+
+
+    </virtual-scroll-element>
+    
     </ion-card-content>
   </ion-card>
 

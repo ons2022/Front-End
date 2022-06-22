@@ -13,38 +13,48 @@
     <div class="form-container">
       <h1> ADD JOB OPPORTIUNITY IN TUNISIA  </h1>
       <ion-item>
+        <ion-label position="floating"> email </ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required" (ionChange)="getemailUser(emailUser)" [(ngModel)]="emailUser"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating"> category  </ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required" (ionChange)="getnomCategorie(nomCategorie)" [(ngModel)]="nomCategorie"></ion-input>
+      </ion-item>
+
+      <ion-item>
         <ion-label position="floating">title of the job </ion-label> 
         
-        <ion-input type="text"   placeholder="champ obligatoir"  required="required"     (ionChange)="getEmploititle(nameEmploi)" [(ngModel)]="nameEmploi"></ion-input>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"     (ionChange)="getnameEmploi(nameEmploi)" [(ngModel)]="nameEmploi"></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-label position="floating"> city of the job </ion-label>
-        <ion-input type="text"   placeholder="champ obligatoir"  required="required" (ionChange)="getEmploicity(annoceEmploi )" [(ngModel)]="annoceEmploi "></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating"> localisation of the job </ion-label>
-        <ion-input type="text"   placeholder="champ obligatoir"  required="required" (ionChange)="getEmploiville(villeEmploi)" [(ngModel)]="villeEmploi"></ion-input>
-      </ion-item>
+
+      
+     
+     
+      
      
       <ion-item>
         <ion-label position="floating">  </ion-label>
         
         <form action="/action_page.php">
           <label for="img">Select image:</label>
-          <input type="file" id="img" name="img" accept="image/*">
+          <ion-input type="file" id="img" name="img" accept="image/*"   placeholder="champ obligatoir"  required="required"     (ionChange)="getimageEmploi(imageEmploi)" [(ngModel)]="imageEmploi"> </ion-input>
          
         </form>
         
         
       </ion-item>
     
-     
+      <ion-item>
+        <ion-label position="floating"> autre </ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required" (ionChange)="getpriceEmploi(priceEmploi)" [(ngModel)]="priceEmploi"></ion-input>
+      </ion-item>
       
         
       <ion-item>
         <ion-label position="floating">
     date </ion-label>
-        <ion-input type="text"   placeholder="champ obligatoir"  required="required"   (ionChange)="getEmploidatedate(dateEmploi)" [(ngModel)]="dateEmploi"></ion-input>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"   (ionChange)="getdateEmploi(dateEmploi)" [(ngModel)]="dateEmploi"></ion-input>
         <ion-icon  slot="end"></ion-icon>
       </ion-item>
      
@@ -52,8 +62,8 @@
 
       <ion-item>
         <ion-label position="floating">
-    descreption of the job  </ion-label>
-        <ion-input type="text"   placeholder="champ obligatoir"  required="required"   (ionChange)="getEmploidescreption(descreption )" [(ngModel)]="descreption "></ion-input>
+          getEmploiville </ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"   (ionChange)="getEmploiville(Emploiville)" [(ngModel)]="Emploiville"></ion-input>
         <ion-icon  slot="end"></ion-icon>
       </ion-item>
         

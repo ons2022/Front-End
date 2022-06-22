@@ -30,7 +30,7 @@ export class FolderPage implements OnInit {
     this.getUsers();
   }
   getUsers(){
-    this.httpClient.get("http://127.0.0.1:8000/getListOfUser/")
+    this.httpClient.get("http://127.0.0.1:8000/getListOfUserNotActivate/")
     .subscribe(data => {
       console.log(data);
       this.user=data;
@@ -74,9 +74,9 @@ export class FolderPage implements OnInit {
     let postData = {
       "emailUser": email,
     }
-    console.log("data",postData)
+    console.log("data",deletetData)
   
-    this.httpClient.delete("http://127.0.0.1:8000/deleteUserWithAdmin?emailUser="+email) 
+    this.httpClient.delete("http://127.0.0.1:8000/deleteUserWithAdmin?email="+email) 
     .subscribe(data => {
       console.log(data);
       this.notif("user is deleted ");
@@ -96,3 +96,7 @@ export class FolderPage implements OnInit {
    }
 
 }
+function deletetData(arg0: string, deletetData: any) {
+  throw new Error('Function not implemented.');
+}
+

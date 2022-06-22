@@ -1,10 +1,13 @@
 
 import { Component, OnInit } from '@angular/core';
-import { NavController, ToastController } from '@ionic/angular';
+import { NavController, ToastController  } from '@ionic/angular';
 import { UtilService } from '../util.service';
 import { HttpClient } from '@angular/common/http';
 import { stringify } from 'querystring';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage-angular';
+import {Injectable} from '@angular/core';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -20,10 +23,18 @@ export class LoginPage implements OnInit {
     private navCtrl: NavController, 
     public httpClient: HttpClient,
     public route : Router,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private storage: Storage,
   ) { }
 
   ngOnInit() {
+    this.storage.create();
+
+  }
+  private fooSubject = new Subject<any>();
+
+  publishSomeData(data: any) {
+      this.fooSubject.next(data);
   }
   getPassword(password){
     this.passwordUser=password;
@@ -63,19 +74,19 @@ export class LoginPage implements OnInit {
       }
        console.log("data",postData)
 
-      this.httpClient.post("http://127.0.0.1:8000/loginUser/", postData)
+      this.httpClient.post<any>("http://127.0.0.1:8000/loginUser/", postData)
           .subscribe(data => {
             console.log(data);
-            if (data=="Welcome admin this your account and please take care for your users ()! "
-            || data=="Welcome in our application" 
-             ) {
+            if (data.token) {
+                this.storage.set("token",data.token);
+                this.storage.set("email",data.email);
               if (this.emailUser=="admin2@admin.com") {
                 this.route.navigate(['/admin'])
               }else{
-                this.route.navigate(['/home'])
+                this.route.navigate(['/homemembre'])
               }
-            }else if (data=="Please wait  for your account is not  activated") {
-              this.notif("Please wait your account is not  activated");
+            }else if (data=="Please wait  !!for your account is not  activated") {
+              this.notif("Please wait your!! account is not  activated");
             }
             else{
               this.notif("Login et / ou Mot de passe erroné");

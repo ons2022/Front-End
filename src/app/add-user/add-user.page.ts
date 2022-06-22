@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { UtilService } from '../util.service';
 import { HttpClient } from '@angular/common/http';
+import { Storage } from '@ionic/storage-angular';
 
 
 @Component({
@@ -23,11 +24,15 @@ export class AddUserPage implements OnInit {
   constructor(private util: UtilService,
     private navCtrl: NavController, 
     public httpClient: HttpClient,
-    
+    private storage: Storage,
     ) 
     { }
 
   ngOnInit() {
+    this.storage.create();
+    this.storage.get("token").then((val) => {
+      console.log(val);
+    })
   }
  
   getPassword(password){

@@ -11,25 +11,22 @@
       </ion-buttons>
     </ion-buttons>
     <div class="form-container">
-      <h1>add car</h1>
+      <h1>ADD NEW CAR </h1>
       <ion-item>
-        <ion-label position="floating">idVoiture</ion-label> 
+        <ion-label position="floating">   emailUser </ion-label> 
         
         <ion-input type="text"   placeholder="champ obligatoir"  required="required"     (ionChange)="getemailUser(emailUser)" [(ngModel)]="emailUser"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating"> nomVoiture</ion-label>
-        <ion-input type="text"   placeholder="champ obligatoir"  required="required" (ionChange)="getfirstNameUser(firstNameUser )" [(ngModel)]="firstNameUser "></ion-input>
+        <ion-label position="floating"> nomCategorie</ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"  (ionChange)="getnomCateg(nomCateg )" [(ngModel)]="nomCateg "></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-label position="floating"> disponible</ion-label>
-        <ion-input type="text"   placeholder="champ obligatoir"  required="required" (ionChange)="getlastNameUser(lastNameUser )" [(ngModel)]="lastNameUser  "></ion-input>
-      </ion-item>
+
       <ion-item>
      
       
-        <ion-label position="floating"> prix</ion-label>
-        <ion-input type="text"   placeholder="champ obligatoir"  required="required"  (ionChange)="gettelUser(telUser )" [(ngModel)]="telUser  "></ion-input>
+        <ion-label position="floating"> nomMarque</ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"  (ionChange)="getnomMarque(nomMarque )" [(ngModel)]="nomMarque "></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">  </ion-label>
@@ -43,13 +40,40 @@
         
       </ion-item>
       <ion-item>
-        <ion-label position="floating">nomMarque</ion-label>
-        <ion-input type="text"   placeholder="champ obligatoir"  required="required"   (ionChange)="getaddressUser(addressUser)" [(ngModel)]="addressUser"></ion-input>
+        <ion-label position="floating"> imageMarque</ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"   (ionChange)="getimageMarque(imageMarque)" [(ngModel)]="imageMarque"></ion-input>
+        <ion-icon  slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating"> nomVoiture </ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"   (ionChange)="getnomVoiture(nomVoiture)" [(ngModel)]="nomVoiture"></ion-input>
+        <ion-icon  slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating"> disponible</ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"   (ionChange)="getdisponible(disponible )" [(ngModel)]="disponible "></ion-input>
+        <ion-icon  slot="end"></ion-icon>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label position="floating"> prix</ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"   (ionChange)="getprix(prix)" [(ngModel)]="prix"></ion-input>
+        <ion-icon  slot="end"></ion-icon>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label position="floating"> image</ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"   (ionChange)="getimage(image)" [(ngModel)]="image"></ion-input>
         <ion-icon  slot="end"></ion-icon>
       </ion-item>
    
+   
 
-      <ion-button (click)="signup()" expand="block" class="main-button">ADD</ion-button>
+      <ion-button (click)="add() " expand="block" class="main-button">ADD</ion-button>
 
      
     </div>

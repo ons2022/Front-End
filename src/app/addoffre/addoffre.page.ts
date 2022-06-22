@@ -16,59 +16,67 @@ export class AddoffrePage implements OnInit {
   villeEmploi:any;
   imageEmploi : any;
   dateEmploi:any;
-  descreption : any ; 
+  emailUser : any ; 
+  nomCategorie : any ; 
+  priceEmploi: any;
   
-
   constructor(
     private navCtrl: NavController, 
     public httpClient: HttpClient,
+    private storage: Storage, 
   ) { }
  
   ngOnInit() {
+    this.storage.create();
+    this.storage.get("token").then((val) => {
+      console.log(val);
+    })
 
   }
 
+  getemailUser(Emploi){
+    this.emailUser=Emploi;
+  }
+
+  getnomCategorie(Emploi){
+    this.nomCategorie=Emploi;
+  }
 
 
-  getEmploititle(Emploi){
+  getnameEmploi(Emploi){
     this.nameEmploi=Emploi;
   }
+
+  
  
   getEmploiville(Emploi){
     this.villeEmploi=Emploi;
   }
-  getEmploicity(Emploi){
-    this.annoceEmploi =Emploi;
-  }
-
-
-  getEmploiimage(Emploi){
+  
+getpriceEmploi(Emploi){
+  this.priceEmploi=Emploi;
+}
+  
+  getimageEmploi(Emploi){
     this.imageEmploi =Emploi;
   }
 
-  getEmploidatedate(Emploi){
+  getdateEmploi(Emploi){
     this.dateEmploi =Emploi;
   }
-
-
-  getEmploidescreption(Emploi){
-    this.descreption =Emploi;
-  }
-
+  
 add(){
   var data; 
 
-
   let postData = {
+    "emailUser": this.emailUser,
+    "nomCategorie": this.nomCategorie,
     "nameEmploi": this.nameEmploi,
-    " annoceEmploi" : this. annoceEmploi,
-    "villeEmploi": this.villeEmploi,
     "imageEmploi": this.imageEmploi,
-    " dateEmploi": this. dateEmploi,
-    " descreption": this. descreption,
-
-
-  
+    "priceEmploi": "",
+    "dateEmploi": this.dateEmploi,
+    "annonceEmploi" : "",
+    "villeEmploi": this.villeEmploi,
    }
 
    console.log("data",postData)
@@ -84,6 +92,5 @@ add(){
 
 }
 
-function getData(arg0: string, getData: any) {
-  throw new Error('Function not implemented.');
-}
+
+

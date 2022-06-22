@@ -1,6 +1,43 @@
 
-<ion-content>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <ion-icon name="menu-outline" ></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="notification"routerLink="">
+        <ion-icon name="notifications-outline" color="dark" ></ion-icon>
+      
+        
+      </ion-button>
+      <ion-button class="notification"routerLink="/add-user">
+          <ion-icon name="add-circle-outline" color="dark" ></ion-icon>
+        
+          
+        </ion-button>
+ 
+      <ion-button class="login"routerLink="/login">
+        <ion-icon name="log-in-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+ 
+ 
 
+</ion-header>
+
+
+
+
+<ion-content>
+  
+ 
+  
+  
+  
   <div class="card-container" *ngFor="let ListOfUser of user">
     <ion-icon ios="ios-arrow" md="md-arrow"></ion-icon>
     <ion-buttons slot="start">
@@ -8,9 +45,13 @@
         <img src="../../assets/back-dark.svg" />
       </ion-buttons>
     </ion-buttons>
+    
     <span class="pro">User</span>
     <img class="round" src="\assets\user1.jpg" alt="user" />
-  
+
+   
+    
+    
     <h3>
       {{ListOfUser.firstNameUser}}
         {{ListOfUser.lastNameUser}}

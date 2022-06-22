@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
 import { VoiturePage } from './voiture/voiture.page';
 // Category 
+import { Chart } from 'chart.js';
+import { Url } from 'url';
 
 export interface ICategory {
   
@@ -22,6 +24,7 @@ export interface IProduct {
   name: string,
   price: number,
   image: string,
+  
 }
 
 @Injectable({
@@ -43,6 +46,9 @@ export class DataService {
   getmarque(): any[] {
     throw new Error('Method not implemented.');
   }
+  getdata(): any[] {
+    throw new Error('Method not implemented.');
+  }
 
   constructor() { }
 
@@ -58,29 +64,39 @@ export class DataService {
     }
 return  Voitures;
   }
+getroot(){
 
+
+}
   getCategories() {
     let categories = [];
 
-    let cat1: ICategory = {
-      id: 1,
-      name: 'automobile',
-      image: '../../assets/categories/voi.jpg'
-      
-    }
+   
     let cat2: ICategory = {
       id: 2,
       name: '',
-      image: '../../assets/categories/stage.png',
+      image: '../../assets/categories/immobilier22.png',
       
+      
+    }
+    let cat4: ICategory = {
+      id: 4,
+      name: '',
+      image: '../../assets/categories/soo.jpg'
     }
     let cat3: ICategory = {
       id: 3,
       name: '',
-      image: '../../assets/categories/khedma .jpg'
+      image: '../../assets/categories/voiture22.png'
+    }
+    
+    let cat1: ICategory = {
+      id: 1,
+      name: '',
+      image: '../../assets/categories/offremplode.png'
     }
 
-    categories.push(cat1, cat2, cat3);
+    categories.push( cat2,cat1,cat3,cat4);
 
     return categories;
   }
@@ -90,9 +106,10 @@ return  Voitures;
 
     let prod1: IProduct = {
       id: 1,
-      name: 'Womens T-Shirt',
-      price: 55,
-      image: '../../assets/products/prod-1.png'
+      name: 'souris-gaming',
+      price: 28,
+      image: '../../assets/products/souris-gaming-t-dagger-brigadier-t-tgm206-tunisie.jpg'
+     
     }
     let prod2: IProduct = {
       id: 2,

@@ -4,6 +4,17 @@ ion-menu-button {
   .login{margin-right: 10px;
   
   }
+
+  .art-shadow  {
+    text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+    font-size:50px;
+    margin-left: 15%;
+    margin-right: 9%;
+    
+   
+  }
+
+
   .add {
     margin-right: 10px;
   }
@@ -46,8 +57,8 @@ ion-menu-button {
   
   .category-slider {
     ion-slide {
-        width: 150px;
-        height: 100px;
+        width: 100px;
+        height: 80px;
         margin-right: 10px;
         margin-left: 20px;
         margin-bottom: 30px;
@@ -64,15 +75,18 @@ ion-menu-button {
             }
   
             img {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 8px;//arrondi el bordure twali 
-                top: 0;
-                left: 0;
-                z-index: -1;
-                box-shadow: 0px 15px 20px 0px rgba(24, 9, 184, 0.16);
+              background-size : contain;
+              background-position : 50% 50%; 
+          
+              display : inline-block;
+              width : 100px; height : 100px;
+              border: none;
+              -moz-border-radius : 75px;
+              -webkit-border-radius : 75px;
+              border-radius : 75px;
+            
+                
+            
                 
     
                 
@@ -109,10 +123,11 @@ ion-menu-button {
   
         ion-col {
             img {
+
                 width: 100%;
                 height: 180px;
                 object-fit: cover;
-                border-radius: 8px;
+                border-radius: 0.5px;
                 
             }
   
@@ -143,3 +158,4 @@ ion-menu-button {
   ion-icon {
     color: rgb(10, 10, 11);
   }
+  

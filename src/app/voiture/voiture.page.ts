@@ -40,11 +40,12 @@ export class VoiturePage implements OnInit {
 
   ngOnInit() {
     this.getvoiture();
+
   }
     
    
   getvoiture(){
-    this.httpClient.get("http://127.0.0.1:8000/getVoitureNeuf/")
+    this.httpClient.get("http://127.0.0.1:8000/getAnnonceVoiture/")
     .subscribe(data => {
       console.log(data);
 

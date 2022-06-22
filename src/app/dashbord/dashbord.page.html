@@ -1,9 +1,166 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>dashbord</ion-title>
+    
+    <ion-buttons slot="start">
+      <ion-menu-button *ngIf="menu!=0">
+        <ion-icon name="menu-outline" ></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="notification"routerLink="/login">
+        <ion-icon name="notifications-outline" color="dark"  ></ion-icon>
+        <span>&nbsp;</span>
+      </ion-button>
+      <ion-button class="back"routerLink="/folder/home">
+        <ion-icon name="arrow-undo-outline"></ion-icon>
+        <span>&nbsp;</span>
+      </ion-button>
+     
+    </ion-buttons>
+    
   </ion-toolbar>
+
 </ion-header>
 
-<ion-content>
 
+
+
+
+
+<ion-content [fullscreen]="true"  onload="window.print()">
+  
+  
+ 
+  
+ 
+  <script type="text/javascript">     
+  function imprimer() {    
+    var imprimer = document.getElementById('imprimer');
+    var popupcontenu = window.open('', '_blank');
+    popupcontenu.document.open();
+    popupcontenu.document.write('<html><body onload="window.print()">' + imprimer.innerHTML + '</html>');
+    popupcontenu.document.close();
+  }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header>
+        Bar Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #barCanvas style="position: relative; height:20vh; width:40vw"></canvas>
+        <input type="button" value="imprimer" onclick="window.print();" />
+        <div id="imprimer" style="display:none;">
+      
+        </div>
+        
+      </ion-card-content>
+    </ion-card>
+
+
+
+
+    <ion-card>
+      <ion-card-header>
+        radar chart 
+      </ion-card-header>
+      <ion-card-content>
+        <canvas id="radar-chart" width="800" height="600"></canvas>
+        <input type="button" value="imprimer" onclick="window.print();" />
+        <div id="imprimer" style="display:none;">
+      
+        </div>
+        
+      </ion-card-content>
+    </ion-card>
+
+
+
+
+    <ion-card>
+      <ion-card-header>
+        Doughnut Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #doughnutCanvas style="position: relative; height:20vh; width:40vw"></canvas>
+        <input type="button" value="imprimer" onclick="window.print();" />
+        <div id="imprimer" style="display:none;">
+      
+        </div>
+        
+      </ion-card-content>
+    </ion-card>
+ 
+    <ion-card>
+      <ion-card-header>
+        Line Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas style="position: relative; height:20vh; width:40vw"></canvas>
+        <input type="button" value="imprimer" onclick="window.print();" />
+        <div id="imprimer" style="display:none;">
+      
+        </div>
+        
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+
+  <ion-list class="cus-card">
+    <ion-list-header>
+      <ion-label>
+        Select Chart type
+      </ion-label>
+    </ion-list-header>
+  
+    <ion-item class="ion-padding-horizontal" lines="none">
+      <ion-label> Charts </ion-label>
+      <ion-select value="bar" okText="Create" cancelText="Cancel" mode="ios" (ionChange)="changeChart($event)" color="danger">
+        <ion-select-option value="bar">Bar</ion-select-option>
+        <ion-select-option value="line">Lines</ion-select-option>
+        <ion-select-option value="radar">Radar</ion-select-option>
+        <ion-select-option value="doughnut">Doughnut</ion-select-option>
+        <ion-select-option value="pie">Pie</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+  </ion-list>  
+  <div class="bg-white cus-card">
+    <canvas #chartCanvas></canvas>
+    <input type="button" value="imprimer" onclick="window.print();" />
+    <div id="imprimer" style="display:none;">
+  
+    </div>
+    
+  </div>
+  <div class="cus-card bg-white ion-padding">
+    <p>  </p>
+    
+  </div>
+
+
+
+
+
+  
+
+ 
+
+
+
+  
 </ion-content>

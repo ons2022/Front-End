@@ -21,6 +21,7 @@ export class MembrePage implements OnInit {
     public httpClient: HttpClient,
     private data: DataService,
     public navCtrl: NavController,
+    
     public http: HttpClient,
   ) { }
 

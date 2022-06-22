@@ -1,58 +1,97 @@
 <ion-header>
   <ion-toolbar>
+
+    <ion-icon name="arrow-undo-outline" size="large" routerLink="/home"></ion-icon>
     <ion-buttons slot="start">
-      <ion-buttons class="backbtn" routerLink="/home" routerDirection="back" size="large">
-        <img src="../../assets/back-dark.svg" />
-        
+      <ion-menu-button>
+        <ion-icon name="menu-outline" ></ion-icon>
+      </ion-menu-button>
       </ion-buttons>
-      
-    </ion-buttons>
+
+
+    <ion-title>COMPUTER EQUIPMENT     </ion-title>
+
+  </ion-toolbar>
+  <ion-toolbar>
+
+   
+
+      <span>&nbsp;</span>
+   
+
     
-    <ion-buttons slot="end">
-      <ion-button class="notification">
-        <ion-icon name="notifications-outline" color="dark"  size="large"></ion-icon>
-      </ion-button>
-      <ion-button class="logout">
-        <ion-icon name="log-out-outline" color="dark" size="large"  ></ion-icon>
-      </ion-button>
-    </ion-buttons>
+    <ion-searchbar></ion-searchbar>
+    
+
+
+  
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
 
-  <h1 class="title">MATERIEL INFORMATIQUE </h1>
+
+
+ 
   
-    <div class="search ion-padding">
+    <!--div class="search ion-padding">
       <ion-item lines="none">
-        <ion-input placeholder="Search Your Product"></ion-input>
-        <ion-icon name="search-outline" slot="start"></ion-icon>
+        <ion-input placeholder="Search Your Product" required="required"(ionChange)="getnameMatrInformatique(nameMatrInformatiqueemailUser)" [(ngModel)]="nameMatrInformatique"></ion-input>
+        <ion-button (click)="search()" expand="block" class="main-button"> 
+
+          <ion-icon name="search-outline" slot="start"></ion-icon>
+
+        </ion-button>
       </ion-item>
-    </div>
+    </div -->
     
   
   <ion-card mode="ios"  *ngFor="let materiel of info ">
     <ion-card-content>
       <div class="item-img">
-        <ion-img [src]="materiel.imageMatrInformatique"></ion-img>
+          <ion-img [src]="materiel.imageMatrInformatique"></ion-img>
       </div>
 
       <div class="item-info">
-        <p> ID :{{materiel.id}}</p>
-        <p>{{materiel.nameMatrInformatique}}</p>
+        
+        <p> product:{{materiel.nameMatrInformatique}}</p>
   
-        <p>{{materiel.priceMatrInformatique}}DT</p>
+        <p><ion-icon name="pricetags-outline"></ion-icon>
+           price :{{materiel.priceMatrInformatique}}DT</p>
        
-        <p>{{materiel.dateMatrInformatique}}</p>
-        <p>{{materiel.annoceMatrInformatique}}</p>
-        <p>{{materiel.villeMatrInformatique}}</p>
+        <p> <ion-icon name="today-outline"></ion-icon>
+          {{materiel.dateMatrInformatique}}</p>
+        <p> <ion-icon name="location-outline"></ion-icon>
+          {{materiel.annoceMatrInformatique}}</p>
+        <p> {{materiel.villeMatrInformatique}}</p>
+
+        <!--rating -->
+        <ion-item>
+          <ion-label position="stacked"></ion-label>
+          <ion-buttons>
+            <ng-container *ngFor="let i of [1,2,3,4,5]">
+              <ion-button (click)="starClicked(i)" >
+                <ion-icon slot="icon-only" *ngIf="i<=stars" name="star">
+                </ion-icon>
+                <ion-icon slot="icon-only" *ngIf="i>stars" name="star-outline">
+                </ion-icon>
+              </ion-button>
+            </ng-container>
+          </ion-buttons>
+        </ion-item> 
 
         
 
-        <div class="qty-selector">
-          <ion-button fill="clear">   ADD NEW   </ion-button>
+        <div class="qty-selector"  >
+          <ion-button fill="clear" routerLink="/addinfo">   ADD NEW   </ion-button>
+          <ion-button fill="clear" href="https://afariat.com/emploi-affaires-et-services">CHECK ANNONCE  </ion-button>
         </div>
+        
       </div>
+
+
+     
     </ion-card-content>
   </ion-card>
 
@@ -63,4 +102,32 @@
 
 
   </ion-list>
+  
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+
+
+
 </ion-content>
+
+<script>
+  const searchbar = document.querySelector('ion-searchbar');
+  const items = Array.from(document.querySelector('ion-list').children);
+
+  searchbar.addEventListener('ionInput', handleInput);
+
+  function handleInput(event) {
+    const query = event.target.value.toLowerCase();
+    requestAnimationFrame(() => {
+      items.forEach((p) => {
+        const shouldShow = p.textContent.toLowerCase().indexOf(query) > -1;
+        p.style.display = shouldShow ? 'block' : 'none';
+      });
+    });
+  }
+</script>
