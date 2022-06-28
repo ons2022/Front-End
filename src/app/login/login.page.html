@@ -3,35 +3,28 @@
    <div class="circleBase type2 circle1"></div>
    <div class="circleBase type1"></div>
    <div class="circleBase type2 circle2"></div>
-  
-  
- 
 </ion-header>
 
 <ion-content class="ion-padding">
  <div class="ion-padding container">
- 
-
-
    <div class="form-container">
      <h1>Login</h1>
-     <div>{{token}}</div>
-     
      <ion-item>
-       <ion-label position="floating">UserName</ion-label>
+       <ion-label position="floating">User Name</ion-label>
        <ion-input (ionChange)="getEmail(email)" [(ngModel)]="email"></ion-input>
      </ion-item>
+
      <ion-item>
+     
        <ion-label position="floating">Password</ion-label>
        <ion-input (ionChange)="getPassword(password)" [(ngModel)]="password" type="password"></ion-input>
-       <ion-icon name="eye" slot="end"></ion-icon>
      </ion-item>
-
      <ion-button expand="block" class="main-button" (click)="login()">Log in</ion-button>
-
      <div class="sign-up">
        Don't have an account? <ion-button color="dark" fill="clear" routerLink="/signup" routerDirection="forward">Sign up</ion-button>
      </div>
+     <div class="sign-up">
+       <ion-button color="dark" fill="clear" routerLink="/welkom" routerDirection="forward">welcome</ion-button></div>
    </div>
    <ion-icon name="caret-back-outline" size="large"  routerLink="/home"></ion-icon>
  </div>

@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button *ngIf="menu!=0">
+        <ion-icon name="menu-outline" ></ion-icon>
+      </ion-menu-button>
+     
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-icon name="arrow-undo-circle-outline" size="large" routerLink="/folder/home"></ion-icon>
+<div class="card-container" *ngFor="let notifications of notif ">
+
+<ion-card >
+  <ion-card >
+    <ion-icon name="calendar-number-outline"size="large">  </ion-icon>
+    {{notifications.dateNotification}}
+  </ion-card> 
+  <ion-card >
+    <p> <ion-icon name="at-circle-outline" size="large"></ion-icon>
+      EMAILUSER:  {{notifications.emailMembre}}</p>
+  </ion-card>
+  <ion-card ><p><ion-icon name="notifications-circle-outline" size="large"></ion-icon> 
+    {{notifications.contenu}}</p></ion-card>
+  
+    
+</ion-card>
+
+
+
+
+
+</div>
+
+</ion-content>

@@ -8,56 +8,36 @@
       
     </ion-buttons>
     
-    <ion-buttons slot="end">
-      <ion-button class="notification">
-        <ion-icon name="notifications-outline" color="dark"  size="large"></ion-icon>
-      </ion-button>
-      <ion-button class="logout">
-        <ion-icon name="log-out-outline" color="dark" size="large"  ></ion-icon>
-      </ion-button>
-    </ion-buttons>
+    
+    <div class="search ion-padding">
+      <ion-item lines="none">
+        <ion-input placeholder="Search"(ionChange)=" getnameImmobilier(nameImmobilier)" [(ngModel)]="nameImmobilier" ></ion-input>
+        <ion-icon name="search-outline" slot="start" (click)= "search()"></ion-icon>
+      </ion-item>
+    </div>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen="true">
-
-
-
   <h1 class="title"> </h1>
-
-  <div class="search ion-padding">
-    <ion-item lines="none">
-      <ion-input placeholder="Search Your Product"></ion-input>
-      <ion-icon name="search-outline" slot="start"></ion-icon>
-    </ion-item>
-  </div>
-
-
-  <virtual-scroll-element class="ion-content-scroll-host"></virtual-scroll-element>
   <ion-card mode="ios"  *ngFor="let immobilier of immob">
-    <ion-card-content>
-      
+    <ion-card-content> 
       <div class="item-info">
-        <p> ID :{{immobilier.id}}</p>
-        <p>{{immobilier.nameImmobilier}}</p>
+        <p></p>
+        <h1> <ion-icon name="home-outline"></ion-icon>{{immobilier.nameImmobilier}}</h1>
         <div class="item-img">
           <ion-img [src]="immobilier.imageImmobilier"></ion-img>
         </div>
-  
-        <p>{{immobilier.priceImmobilier}}</p>
-        <p>{{immobilier.dateImmobilier}}</p>
-        <p>{{immobilier.annoceImmobilier}}</p>
-        <p>{{immobilier.villeImmobilier}}</p>
-
-        
-
+        <h2> <ion-icon name="cash-outline" (click)="getInfo(immobilier)" size="large"></ion-icon>{{immobilier.priceImmobilier}} DT</h2>
+        <h2> <ion-icon name="calendar-number-outline" size="large"></ion-icon>{{immobilier.dateImmobilier}}</h2>
+        <h2><ion-icon name="pricetags-outline" size="large"></ion-icon>{{immobilier.annoceImmobilier}}</h2>
+        <h2> <ion-icon name="pin-outline"size="large"></ion-icon>{{immobilier.villeImmobilier}}</h2>
         <div class="qty-selector">
           <ion-button fill="clear"   routerLink="/addimmobilier" >   ADD NEW ANNONCE  </ion-button>
+          <ion-button fill="clear" href="https://afariat.com/immobilier">CHECK ANNONCE  </ion-button>
         </div>
       </div>
-
-
-    </virtual-scroll-element>
     
     </ion-card-content>
   </ion-card>

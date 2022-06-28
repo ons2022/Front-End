@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>oldcar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 class="title"> </h1>
+  <ion-card mode="ios"  *ngFor="let Voitures  of neufs">
+    <ion-card-content>
+      <div class="item-img">
+        <ion-img [src]="Voitures.image"></ion-img>
+      </div>
+
+      <div class="item-info">
+    
+        <p>   <ion-icon name="car-outline"></ion-icon>
+           :{{Voitures.nomVoiture}}</p>
+  
+        <p><ion-icon name="cash-outline"></ion-icon>
+         price {{Voitures.prix}}DT</p>
+         
+        <p><ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon>
+          type :{{Voitures.typeCar}}</p>
+        <p> <ion-icon name="albums"></ion-icon> braind:{{Voitures.nomMarque}}</p>
+       
+      
+        
+
+        
+
+        <div class="qty-selector">
+          <ion-button fill="clear" routerLink="/addcar" >   ADD NEW   </ion-button>
+          <ion-button fill="clear" href="https://www.automobile.tn/fr">CHECK ANNONCE  </ion-button>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  
+  <ion-list>
+
+
+
+
+  </ion-list>
+
+</ion-content>

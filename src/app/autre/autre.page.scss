@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  img {
+    border: 1px solid rgba(60, 36, 169, 0.902);
+    border-radius: 100px;
+    padding: 1px;
+    width: 70px;
+    margin-left: 25%;
+    margin-right: auto;
+    
+
+
+  }
+  h3{
+    justify-content: center;
+    margin-left: 25%;
+    margin-right: auto;
+
+  }
+  ion-icon {
+    color: black;
+    font-size: 30px;
+    --ionicon-stroke-width: 16px;
+
+  }

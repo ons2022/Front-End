@@ -1,9 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>addcategrie</ion-title>
+    <ion-icon name="chevron-back-circle-outline" size="large" routerLink="/folder/home"></ion-icon>
+ 
   </ion-toolbar>
+  
 </ion-header>
 
 <ion-content>
+  <ion-card>
+  <ion-item class="card">
+    <di routerLink="/catadmin"><img src="/assets//téléchargement (1).png"   ></di>
+    <ion-label position="floating"> <h1>New category </h1></ion-label>
+    <ion-input type="text"   placeholder="champ obligatoir"  required="required"(ionChange)="getnomCategorie(nomCategorie)" [(ngModel)]="nomCategorie"></ion-input>
+    <ion-icon  slot="end"></ion-icon>
+  </ion-item>
+  <ion-button (click)="add() " expand="block" class="main-button">ADD</ion-button>
+  </ion-card>
+
 
 </ion-content>

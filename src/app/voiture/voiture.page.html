@@ -8,13 +8,17 @@
       </ion-menu-button>
       </ion-buttons>
 
-
     <ion-title>    </ion-title>
 
   </ion-toolbar>
   <ion-toolbar>
       <span>&nbsp;</span>
-    <ion-searchbar></ion-searchbar>
+      <div class="search ion-padding">
+        <ion-item lines="none">
+          <ion-input placeholder="Search"(ionChange)="getnomVoiture(nomVoiture)" [(ngModel)]="nomVoiture" ></ion-input>
+          <ion-icon name="search-outline" slot="start" (click)= "search()"></ion-icon>
+        </ion-item>
+      </div>
   </ion-toolbar>
 </ion-header>
 
@@ -30,12 +34,14 @@
       <div class="item-info">
     
         <p>   <ion-icon name="car-outline"></ion-icon>
-           AVAilability :{{Voitures.nomVoiture}}</p>
+           :{{Voitures.nomVoiture}}</p>
   
         <p><ion-icon name="cash-outline"></ion-icon>
-          {{Voitures.prix}}DT</p>
-
-        <p> <ion-icon name="albums"></ion-icon>{{Voitures.nomMarque}}DT</p>
+         price {{Voitures.prix}}DT</p>
+         
+        <p><ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon>
+          type :{{Voitures.typeCar}}</p>
+        <p> <ion-icon name="albums"></ion-icon> braind:{{Voitures.nomMarque}}</p>
        
       
         
@@ -43,7 +49,7 @@
         
 
         <div class="qty-selector">
-          <ion-button fill="clear" routerLink="/ajoutannonce" >   ADD NEW   </ion-button>
+          <ion-button fill="clear" routerLink="/addcar" >   ADD NEW   </ion-button>
           <ion-button fill="clear" href="https://www.automobile.tn/fr">CHECK ANNONCE  </ion-button>
         </div>
       </div>

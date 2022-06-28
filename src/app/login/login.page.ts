@@ -15,8 +15,9 @@ import {Subject} from 'rxjs';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  passwordUser : any;
-  emailUser: any;
+  password : any;
+  email: any;
+  type: boolean = true;
   
   constructor(
     private util: UtilService,
@@ -29,18 +30,29 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.storage.create();
+    this.storage.get("token").then((val) =>{
+      console.log("testttt ",val);
+      if (val) {
+        this.route.navigate(['/folder/home'])
+      }
+    })
 
+
+  }
+  
+  changeType() {
+    this.type = !this.type;
   }
   private fooSubject = new Subject<any>();
 
   publishSomeData(data: any) {
       this.fooSubject.next(data);
   }
-  getPassword(password){
-    this.passwordUser=password;
+  getpasswordUser (password ){
+    this.password  =password  ;
   }
   getEmail(email){
-    this.emailUser=email;
+    this.email=email;
   }
 
   async notif(msg) {
@@ -53,58 +65,36 @@ export class LoginPage implements OnInit {
 
   login() {
     var data;
-    // Enabling Side Menu ki tecliki alihom yatlaalek el menu 
-    //  this.util.setMenuState(true);
-    //  this.navCtrl.navigateRoot('/home', { animationDirection: 'forward' });
+     data= {
+      "username":    this.email,
+     "password": this.password ,
+     }
 
+     console.log("data",data)
 
-    // data= {
-    //   "emailUser":    this.email,
-    //   "passwordUser": this.password
-    //   }
-
-
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.emailUser)){
-      console.log("email valid");
-      
-
-      let postData = {
-        "emailUser": this.emailUser,
-        "passwordUser": this.passwordUser
-      }
-       console.log("data",postData)
-
-      this.httpClient.post<any>("http://127.0.0.1:8000/loginUser/", postData)
-          .subscribe(data => {
-            console.log(data);
-            if (data.token) {
-                this.storage.set("token",data.token);
-                this.storage.set("email",data.email);
-              if (this.emailUser=="admin2@admin.com") {
-                this.route.navigate(['/admin'])
-              }else{
-                this.route.navigate(['/homemembre'])
-              }
-            }else if (data=="Please wait  !!for your account is not  activated") {
-              this.notif("Please wait your!! account is not  activated");
-            }
-            else{
-              this.notif("Login et / ou Mot de passe erroné");
-            }
-
-
-             
-           }) 
-  
-      console.log("email ",this.emailUser,"pass ",this.passwordUser);
-  
-    }else{
-      this.notif("Email non valid");
+ 
+    this.httpClient.post<any>("http://127.0.0.1:8000/loginUser/", data)
+        .subscribe(data => {
+        console.log(data);
+        this.storage.set('token', data.token);
+        this.storage.set('email', this.email);
+        if (this.email=="octanet") {
+          this.route.navigate(['/folder/home'])  
+        }else{
+          this.route.navigate(['/home'])  
+        }
+                         
+         }, error =>{
+          this.notif(" try again!!!! ");
+         }) 
+         
+        
 
     }
+    
    
   }
 
-}
+
 
 

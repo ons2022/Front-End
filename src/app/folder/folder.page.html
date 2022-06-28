@@ -6,51 +6,32 @@
       </ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button class="notification"routerLink="">
+      <ion-button class="notification"routerLink="/notification">
         <ion-icon name="notifications-outline" color="dark" ></ion-icon>
-      
-        
       </ion-button>
-      <ion-button class="notification"routerLink="/add-user">
+      <ion-button class="notification"routerLink="/signup">
           <ion-icon name="add-circle-outline" color="dark" ></ion-icon>
-        
-          
         </ion-button>
- 
       <ion-button class="login"routerLink="/login">
         <ion-icon name="log-in-outline" color="dark"></ion-icon>
       </ion-button>
     </ion-buttons>
-    
   </ion-toolbar>
 </ion-header>
-
-
 <ion-content>
 <div class="nav">
-          <div class="search">
-              <div class="search ion-padding">
-                  <ion-item lines="none">
-                    <ion-input placeholder="Search Your Product"></ion-input>
-                    <ion-icon name="search-outline" slot="start"></ion-icon>
-                  </ion-item>
-         </div>
-          
-      </div>
-  
   <div class="content">
       <div class="cards">
           <div class="card">
               <div class="box" routerLink="/catadmin">
-                  <h3>   <ion-icon name="checkbox-outline" size="large "  size="large "  routerLink="/catadmin"></ion-icon> catégories</h3>  
+                  <h3>   <ion-icon name="checkbox-outline" size="large "  size="large "  routerLink="/catadmin"></ion-icon> CATEGORIES</h3>  
               </div>
               <div class="icon-case"  img src="">
               </div>
           </div>
           <div class="card" routerLink="/membre">
               <div class="box">
-                 
-                  <h3> <ion-icon name="newspaper-outline" size="large "  routerLink="/membre" ></ion-icon> membres  </h3>
+                  <h3> <ion-icon name="newspaper-outline" size="large "  routerLink="/membre" ></ion-icon>  MEMBERS </h3>
               </div>
               <div class="icon-case">
                   
@@ -58,15 +39,14 @@
           </div>
           <div class="card"   routerLink="/dashbord">
               <div class="box" img src="\assets\dashboard.png">
-                  <h3>  <ion-icon name="analytics-outline" size="large"  routerLink="/dashbord"></ion-icon> dashbord</h3>
+                  <h3>  <ion-icon name="analytics-outline" size="large"  routerLink="/dashbord"></ion-icon> DASHBORD</h3>
               </div>
               <div class="icon-case">    
               </div>
           </div>
-
           <div class="card"   routerLink="/adminaddannonce">
               <div class="box">
-                  <h3> <ion-icon name="list-circle-outline" size="large "></ion-icon>  add annonces </h3>
+                  <h3> <ion-icon name="list-circle-outline" size="large "></ion-icon>  ADD ANNONCE </h3>
               </div>
               <div class="icon-case">
                   
@@ -80,41 +60,59 @@
           <div class="recent-payments">
               <div class="title">
                   <h2>Recently added annonce</h2>
-                  <a href="#" class="btn">View All</a>
+
               </div>
-           
+              <div>
+                <ion-slide >
+            
+                  </ion-slide>
+
+                <ion-slide >
+                    <ion-col class="ion-text-left">
+                      
+                      <div class="">
+
+                      <table>
+                        <tr>
+                          <th></th>
+                            <th>Nom</th>
+                            <th>marque</th>
+                            <th>option</th>
+                        </tr>
+                        <tr  *ngFor="let ListOfvoit of voitureNotActivat">
+                          <td><ion-icon name="notifications-circle-outline" size="large"></ion-icon></td>
+                            <td>{{ListOfvoit.nomMarque}}</td>
+                            <p>{{ListOfvoit.nomVoiture}}</p>
+                            <td><ion-icon name="checkmark-done-outline" size="large"  (click)="activatevoiture(ListOfvoit.nomVoiture)"></ion-icon></td>
+                            <td><ion-icon name="trash-outline" size="large"  (click)="deletevoiture(ListOfvoit.nomVoiture)"></ion-icon></td>
+                        </tr>
+                    </table>
+                      </div>
+                    </ion-col>
+                  </ion-slide>
+
+                  <ion-slide >
+                  </ion-slide>
+              </div>
           </div>
-         <container>        
-             <td></td>
-             <td></td>
-         </container>
           <div class="new-students">
               <container>
               <div class="title">
                   <h2>New membre validation </h2>
-                  <a href="#" class="btn">View All</a>
+                  <a href="#" class="btn"routerLink="">View All</a>
               </div>
               <table>
                   <tr>
                       <th>Profile</th>
                       <th>Email</th>
-        
                       <th>option</th>
                   </tr>
                   <tr  *ngFor="let ListOfUser of user">
                       <td><img src="assets\valideruser.png" alt="" routerLink="/user"></td>
-                      <p>{{ListOfUser.emailUser}}</p>
-                      <td><ion-icon name="checkmark-done-outline" size="large"  (click)="activate(ListOfUser.emailUser)" ></ion-icon></td>
-                      <td><ion-icon name="trash-outline" size="large"  (click)="delete(ListOfUser.emailUser)"></ion-icon></td>
-                     
-                        
+                      <p>{{ListOfUser.email}}</p>
+                      <td><ion-icon name="checkmark-done-outline" size="large"(click)="activate(ListOfUser.email)"></ion-icon></td>
+                      <td><ion-icon name="trash-outline" size="large"(click)="delete(ListOfUser.email)"></ion-icon></td>
                   </tr>
-                  
-                  
-                     
-                      
-                 
-
               </table>
           </container>
           </div>

@@ -7,59 +7,82 @@
     </ion-buttons>
     
     <ion-buttons slot="end">
-      <ion-button class="notification"routerLink="/login">
-        <ion-icon name="notifications-outline" color="dark" ></ion-icon>
+      <ion-button class="back"routerLink="/homemembre">
+        <ion-icon name="arrow-undo-outline" size="large"></ion-icon>
         <span>&nbsp;</span>
       </ion-button>
-
-      <ion-button class="back"routerLink="/folder/home">
-        <ion-icon name="arrow-undo-outline"></ion-icon>
-        <span>&nbsp;</span>
-      </ion-button>
-      <ion-button class="add"routerLink="/signup">
-        <ion-icon name="person-add-outline" color="dark" ></ion-icon>
-      </ion-button>
-      <ion-button class="login"routerLink="/login">
-        <ion-icon name="log-in-outline" color="dark"></ion-icon>
+      <ion-button class="login"routerLink="/">
+        <ion-icon name="notifications-circle-outline" size="large"></ion-icon>
+       
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
   
-<div class="cards-container">
- 
- <div class="card card-one">
-   <header>
-     <div class="avatar">
-       <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Jhon Doe" />
-     </div>
-   </header>
+  <div id="login-container">
+    <div class="profile-img"></div>
+    <h1>
+     USER NAME : ONS
+    </h1>
+    
+    <div class="description">
+     <h2>EMAIL :<h3>onsismailhajri@gmail.com </h3> </h2> 
+      
+    </div>
+    <div class="social">
+      
+    </div>
+    <button routerLink="/editprofil">EDIT PROFILE </button>
+    <footer>
+      <div class="likes">
+        <p><i class='fa fa-heart'></i></p>
+        <p></p>
+      </div>
+      <div class="projects">
+        <p></p>
+        <p></p>
+      </div>
+    </footer>
+  </div>
 
-   <h3>Jhon Doe</h3>
-   <div class="desc">
-     Lorem ipsum dolor sit amet, consectetur adipisicing elit et cupiditate deleniti.
-   </div>
-   <div class="contacts">
-     <a href=""><i class="fa fa-plus"></i></a>
-     <a href=""><i class="fa fa-whatsapp"></i></a>
-     <a href=""><i class="fa fa-envelope"></i></a>
-     <div class="clear"></div>
-   </div>
-
-   <footer>
-     <a href=""><i class="fa fa-facebook"></i></a>
-     <a href=""><i class="fa fa-linkedin"></i></a>
-     <a href=""><i class="fa fa-twitter"></i></a>
-     <a href=""><i class="fa fa-instagram"></i></a>
-   </footer>
- </div>
-
-
- 
- 
- <div class="clear"></div>
-</div>
-
+  <div id="login-container">
+    <div class="profile1-img"></div>
+    <h1>
+    check your annonce 
+    </h1>
+    
+    <div class="description">
+     <h2> <h3> </h3> </h2> 
+      
+    </div>
+    <div class="new-students">
+      <container>
+      <table>
+          <tr>
+              <th>ANNONCE</th>
+              <th>CATEGORY</th>
+              <th>OPTION </th>
+            
+          </tr>
+        
+          <tr>
+              <td><img src="assets\123.png" alt="" routerLink="/"></td>
+              <h2>pc portable fgdssdfdg</h2>
+              <td><ion-icon name="create-outline" size="large"></ion-icon></td>
+              <td></td>
+              <td><ion-icon name="trash-outline" size="large"></ion-icon></td>
+          </tr>
+          
+            
+      </table>
+  </container>
+  </div>
+  
+    <footer>
+      
+    </footer>
+  </div>
 </ion-content>

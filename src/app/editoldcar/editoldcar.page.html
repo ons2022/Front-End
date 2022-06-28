@@ -1,0 +1,74 @@
+<ion-header>
+  
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ion-padding container">
+   
+    <ion-buttons slot="start">
+      <ion-buttons class="backbtn" routerLink="/profile">
+        <ion-icon name="chevron-back-circle-outline" size="large"></ion-icon>
+      </ion-buttons>
+    </ion-buttons>
+    <div class="form-container">
+   
+      <ion-col class="ion-text-left" routerLink="/voiture"routerDirection=""> 
+        <img src="/assets/old.png">
+        <h1 class="font-bold"> EDIT YOUR  SECOND HAND  CAR ANNONCE  </h1>
+        <div class=""></div>
+      </ion-col>
+      
+      <ion-item>
+        <ion-label position="floating"> CAR NAME</ion-label> 
+        <ion-input type="text"placeholder="champ obligatoir" 
+         required="required"(ionChange)="getnomMarque(nomMarque)" [(ngModel)]="nomMarque"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"> PRICEE</ion-label> 
+        <ion-input type="text"   placeholder="champ obligatoir"  
+        required="required"(ionChange)="getdisponible(disponible)"[(ngModel)]="disponible"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">AGE OF THE CAR </ion-label> 
+        <ion-input type="text"placeholder="champ obligatoir"
+          required="required"(ionChange)="getprix(prix)" [(ngModel)]="prix"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">KMS </ion-label> 
+        <ion-input type="text"placeholder="champ obligatoir"
+          required="required"(ionChange)="getprix(prix)" [(ngModel)]="prix"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">ENERGY </ion-label> 
+        <ion-input type="text"placeholder="champ obligatoir"
+          required="required"(ionChange)="getprix(prix)" [(ngModel)]="prix"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">GEAR BOX</ion-label> 
+        <ion-input type="text"placeholder="champ obligatoir"
+          required="required"(ionChange)="getprix(prix)" [(ngModel)]="prix"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">DESCREPTION</ion-label> 
+        <ion-input type="text"placeholder="champ obligatoir"
+          required="required"(ionChange)="getprix(prix)" [(ngModel)]="prix"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">descreption</ion-label> 
+        <ion-input type="text"placeholder="champ obligatoir"
+          required="required"(ionChange)="getnomVoiture( nomVoiture)"[(ngModel)]="nomVoiture"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"></ion-label>
+        <form action="/action_page.php">
+          <label for="img">Select image:</label>
+          <input type="file" id="img" name="img" accept="image/*"required="required"(ionChange)="getimage(image)" [(ngModel)]="image" >
+        </form>
+      </ion-item>
+      <ion-button (click)="add() " expand="block" class="main-button">SAVE </ion-button>
+
+     
+    </div>
+  </div>
+</ion-content>

@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
   {
@@ -15,10 +15,6 @@ const routes: Routes = [
   {
     path: 'addimmobilier',
     loadChildren: () => import('./addimmobilier/addimmobilier.module').then( m => m.AddimmobilierPageModule)
-  },
-  {
-    path: 'addinfo',
-    loadChildren: () => import('./addinfo/addinfo.module').then( m => m.AddinfoPageModule)
   },
   {
     path: 'addoffre',
@@ -40,10 +36,6 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: 'homemembre',
-    loadChildren: () => import('./homemembre/homemembre.module').then( m => m.HomemembrePageModule)
   },
   {
     path: 'immobilier',
@@ -105,9 +97,57 @@ const routes: Routes = [
   {
     path: 'addcategrie',
     loadChildren: () => import('./addcategrie/addcategrie.module').then( m => m.AddcategriePageModule)
-  }
-];
+  },
+  {
+    path: 'addcar',
+    loadChildren: () => import('./addcar/addcar.module').then( m => m.AddcarPageModule)
+  },
+  {
+    path: 'notification',
+    loadChildren: () => import('./notification/notification.module').then( m => m.NotificationPageModule)
+  },
+  {
+    path: 'occation',
+    loadChildren: () => import('./occation/occation.module').then( m => m.OccationPageModule)
+  },
+  {
+    path: 'notifmembre',
+    loadChildren: () => import('./notifmembre/notifmembre.module').then( m => m.NotifmembrePageModule)
+  },
+  {
+    path: 'autre',
+    loadChildren: () => import('./autre/autre.module').then( m => m.AutrePageModule)
+  },
+  {
+    path: 'oldcar',
+    loadChildren: () => import('./oldcar/oldcar.module').then( m => m.OldcarPageModule)
+  },
+  {
+    path: 'editcar',
+    loadChildren: () => import('./editcar/editcar.module').then( m => m.EditcarPageModule)
+  },
+  {
+    path: 'editprofil',
+    loadChildren: () => import('./editprofil/editprofil.module').then( m => m.EditprofilPageModule)
+  },
+  {
+    path: 'editimmob',
+    loadChildren: () => import('./editimmob/editimmob.module').then( m => m.EditimmobPageModule)
+  },
+  {
+    path: 'editinfo',
+    loadChildren: () => import('./editinfo/editinfo.module').then( m => m.EditinfoPageModule)
+  },
+  {
+    path: 'editoldcar',
+    loadChildren: () => import('./editoldcar/editoldcar.module').then( m => m.EditoldcarPageModule)
+  },
+  {
+    path: 'editjob',
+    loadChildren: () => import('./editjob/editjob.module').then( m => m.EditjobPageModule)
+  },
 
+];
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),

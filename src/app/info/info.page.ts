@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-
+import { IonInfiniteScroll } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { LoadingController, NavController } from '@ionic/angular';
 import {  ViewChild } from '@angular/core';
-import { IonInfiniteScroll } from '@ionic/angular';
+import { DataService } from '../data.service';
+import {HttpHeaders } from '@angular/common/http';
+import { IonSearchbar } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
+import { Router } from '@angular/router';
+import {ToastController  } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-info',
@@ -14,30 +20,40 @@ export class InfoPage implements OnInit {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   public materiel =[] ;
   info : any ; 
-  stars:number;
   nameMatrInformatique:any;
+  totalinfo: any ; 
   isLoading=false;
-  
-
   constructor(
-
-    public httpClient: HttpClient,
     public loadingCtrl: LoadingController,
     public navCtrl: NavController,
     public http: HttpClient,
+    public httpClient: HttpClient,
+    private data: DataService,
+    private storage: Storage,
+    private route: Router,
+    public toastController: ToastController,
+    public alertController: AlertController,
     
-  
   ) { 
     
-    this.stars=0;
+   
+  }
+  loadData(event) {
+    var data
+    setTimeout(() => {
+      console.log('Done');
+      event.target.complete();
+
+      // App logic to determine if all data is loaded
+      // and disable the infinite scroll
+      if (data.length === 99) {
+        event.target.disabled = true;
+      }
+    }, 100);
   }
 
  
-  starClicked(i:number){
-      this.stars=i;
   
-   }
-
   ngOnInit() {
     this.getmateriel();
   }
@@ -66,49 +82,68 @@ export class InfoPage implements OnInit {
 
 getmateriel(){
 this.loadingPresent();
-    this.httpClient.get("http://127.0.0.1:8000/getMaterielleInformatique/")
+    this.httpClient.get<any>("http://127.0.0.1:8000/getMaterielleInformatique/")
     .subscribe(data => {
       this.loadingDismiss();
       console.log(data);
 
-      this.info=data;
-      
+      this.info=data.results; 
+      this.totalinfo=data.results;
       
     },error => {this.loadingDismiss();})
   
 }
+getnameMatrInformatique(nameMatrInformatique){
+  this.nameMatrInformatique=nameMatrInformatique;
 
-getnameMatrInformatique(password){
-  this.nameMatrInformatique=password;
+}
+async notif(msg) {
+  const toast = await this.toastController.create({
+    message: msg,
+    duration: 2000
+  });
+  toast.present();
 }
 search(){
-let postData = {
-  "nameMatrInformatique": this.nameMatrInformatique,
-  
+  if (!this.nameMatrInformatique) {
+    this.info=this.totalinfo;
+  }else{
+    var data;
+    data= {
+     "nameMatrInformatique": this.nameMatrInformatique,
+    }
+    this.storage.get("token").then((val) =>{
+      let token=val;
+      console.log(token);
+    const headers ={
+      headers: new HttpHeaders({
+        'Authorization': 'token '+token
+      })
+    } 
+    console.log("data",data)
+    this.httpClient.post<any>("http://127.0.0.1:8000/searchMaterielleInformatiqueByName/", data)
+    .subscribe(data => {
+    console.log(data);
+    this.info=data.data ;
+
+
+    
+     }
+     , error =>{
+      this.notif("does not exist");
+     }) 
+     
+    }) 
+  }
 
 }
- console.log("data",postData)
+
+}
 
 
-this.httpClient.post("http://127.0.0.1:8000/searchMaterielleInformatiqueByName/", postData)
-    .subscribe(data => {
-      console.log(data);
-       
-     })
-    }
 
-    loadData(event) {
-      setTimeout(() => {
-        console.log('Done');
-        event.target.complete();
-  
-      }, 500);
-    }
-  
-    toggleInfiniteScroll() {
-      this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
-    }
+
     
 
-}
+
 

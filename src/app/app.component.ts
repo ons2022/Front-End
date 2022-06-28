@@ -17,13 +17,13 @@ export class AppComponent {
   public appPages = [
     { title: 'Consulter annances', url: '/categorie', icon: 'mail' },
     { title: 'Ajouter annance', url: '/categorie', icon: 'add' },
-    { title: 'Profile', url: '/user', icon: 'person' },
+  
 
   ];
   public appPages_admin = [
     { title: 'Consulter annances', url: '/categorie', icon: 'mail' },
     { title: 'Ajouter annance', url: '/categorie', icon: 'add' },
-    { title: 'Profile', url: '/user', icon: 'person' },
+  
 
   ];
   email: any;
@@ -51,7 +51,38 @@ export class AppComponent {
 
     })
   }
-  
+  getemail(email){
+    this.email=email;
+  }
+  home(){
+    this.storage.get("token").then((val) =>{
+      let email;
+      email=val;
+      console.log(email)
+    if (email=="octanet") {
+      this.route.navigate(['/folder/home'])  
+     
+       
+    }else{ 
+      this.route.navigate(['/home']) 
+      
+    }
+  })
+  }
+
+  back(){
+
+    this.storage.get("token").then((val) =>{
+      let email;
+      email=val;
+      console.log(email)
+    if (email==null) {
+      this.route.navigate(['/login'])  
+    }else{
+      this.route.navigate(['/profile'])  
+    }
+  })
+  }
     }
    //logout al app lkol 
     

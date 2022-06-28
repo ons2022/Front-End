@@ -14,7 +14,7 @@
       <ion-button class="add"routerLink="/signup">
         <ion-icon name="person-add-outline" color="dark" ></ion-icon>
       </ion-button>
-      <ion-button class="login"routerLink="/login">
+      <ion-button class="login" (click)="logout()">
         <ion-icon name="log-in-outline" color="dark"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -23,87 +23,42 @@
 </ion-header>
 
 <ion-content>
-
-  <div class="search ion-padding">
-    <ion-item lines="none">
-      <ion-input placeholder="Search"></ion-input>
-      <ion-icon name="search-outline" slot="start"></ion-icon>
-    </ion-item>
-  </div>
-
-  
-  
   <div *ngFor="let voiture of neufs">
-    
-  
   </div>
 
   <div class="title ion-padding">
-    <h2>Categories</h2>
+    <h2 class="font-bold">Categories</h2>
     
   </div>
-
-
   <div class="category-slider ion-padding-start">
     <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
-     
-
-
       <ion-slide >
-
-        <ion-col class="ion-text-left" routerLink="/info"   routerDirection="">
-         
-          
+        <ion-col class="ion-text-left" routerLink="/info"   routerDirection=""> 
           <img src="/assets/categories/soo.jpg"  />
-          
           <div class=""></div>
         </ion-col>
-
-      
       </ion-slide>
-
-
       <ion-slide >
-
         <ion-col class="ion-text-left" routerLink="/voiture"   routerDirection="">
-         
-          
           <img src="/assets/categories/voiture22.png"  />
-          
           <div class=""></div>
         </ion-col>
-
-      
       </ion-slide>
-
-
       <ion-slide >
 
-        <ion-col class="ion-text-left" routerLink="/jobs "   routerDirection="">
-         
-          
+        <ion-col class="ion-text-left" routerLink="/jobs"routerDirection="">
           <img src="/assets/categories/offremplode.png"  />
-          
           <div class=""></div>
         </ion-col>
-
-      
       </ion-slide>
 
       <ion-slide >
-
         <ion-col class="ion-text-left" routerLink="/immobilier"   routerDirection="">
-         
-          
           <img src="/assets/categories/immobilier22.png"  />
           
           <div class=""></div>
         </ion-col>
-
-      
       </ion-slide>
-
-
     </ion-slides>
   </div>
 
@@ -119,12 +74,8 @@
         <ion-col class="ion-text-left">
             <div >
           <a href="https://immobiliere.tn/annonces/details/villa-a-louer-a-gammarth"><img src="\assets\immo.png" alt="Steak" style="width:100%" ></a>
-          
-          
           </div>
-         
         </ion-col>
-        
       </ion-slide>
 
       <ion-slide >
@@ -155,7 +106,31 @@
     
   </div>
 
+  <!-- !PAGE CONTENT! -->
+ <div class="content">
+  <img src="\assets\info8.png" alt="Sandwich" style="width:100%"  routerLink="/info">
+  <h3>COMPUTER  EQUIPMENT </h3>
+  <p> OUR APPLICATION  OFFRES ITS CUSTOMERS ALL KINDS OF ITEMS
+      FOR  COMPUTERS  USE:
+       LAPTOPS, DESKTOP, TABLETS, SMARTPHONS
+        AS WELL AS ALL KINDS  OF  ACCECORIES SUCH AS KEYBORDS , MICE , HEADEST , CABLES </p>
+</div>
+<div class="content" >
+  <img src="\assets\job.png" alt="Steak" style="width:100%" routerLink="/jobs">
+  <h3>Find a job </h3>
+  <p>SHOWING RESULTS FOR THE JOBS OPPORTUNITIES   IN TUNISIA</p>
+</div>
+<div class="content">
+  <img src="\assets\immo1.webp" alt="Cherries" style="width:100%">
   
+  <h3> IMMOBILIÈRE :HOME IN TUNISIA</h3>
+  <p>44,948 PROPERTIES IN TUNISIA : FIND AN APARTMENT TO RENT OR A HOUSE FOR SALE</p>
+</div>
+<div class="content" >
+  <img src="\assets\auto4.png" alt="Pasta and Wine" style="width:100%" routerLink="/voiture">
+  <h3>TOP CARS TUNISIE</h3>
+  <p>SHOWING RESULTS FOR THE BEST CARS   IN TUNISIA</p>
+</div>
 
   
 </ion-content>

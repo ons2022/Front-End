@@ -1,0 +1,63 @@
+<ion-header>
+  
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ion-padding container">
+    <ion-buttons slot="start">
+      <ion-buttons class="backbtn" routerLink="/profile">
+        <ion-icon name="chevron-back-circle-outline" size="large"></ion-icon>
+      </ion-buttons>
+    </ion-buttons>
+
+    <div class="form-container">
+   
+      <ion-col class="ion-text-left" routerLink=""> 
+        <img src="/assets/job2.png" routerLink="/"  />
+        <h1 class="font-bold">EDIT  YOUR  JOB ANNONCE </h1>
+      </ion-col>
+    </div>
+
+      <ion-item>
+        <ion-label position="floating">JOB DESCREPTION  </ion-label> 
+        <ion-input type="text"   placeholder="champ obligatoir"  
+        required="required"(ionChange)="getnameEmploi(nameEmploi)"[(ngModel)]="nameEmploi"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">salary</ion-label>
+        <ion-input type="text"placeholder="champ obligatoir"  
+        required="required"(ionChange)="getpriceEmploi(priceEmploi)" [(ngModel)]="priceEmploi"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"></ion-label>
+        <form action="/action_page.php">
+          <label for="img">Select image:</label>
+          <input type="file" id="img" name="img" accept="image/*"
+          required="required"(ionChange)="getimageEmploi(imageEmploi)" [(ngModel)]="imageEmploi" >
+        </form>
+      </ion-item>
+      <ion-item>
+        <ion-label> date
+          <ion-datetime required="required"   
+          (ionChange)="getdateEmploi(dateEmploi)"
+           [(ngModel)]="dateEmploi"></ion-datetime>
+    </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">location</ion-label>
+        <ion-input type="text"   placeholder="champ obligatoir" 
+        required="required"(ionChange)="getannoceEmploi(annoceEmploi)"[(ngModel)]="annoceEmploi"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"> adress</ion-label>
+        <ion-input type="text"placeholder="champ obligatoir" 
+         required="required"(ionChange)="getvilleEmploi(villeEmploi)"[(ngModel)]="villeEmploi">
+        </ion-input>
+        <ion-icon  slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-button (click)="add()" expand="block" class="main-button">SAVE</ion-button>
+
+  </div>
+</ion-content>
+

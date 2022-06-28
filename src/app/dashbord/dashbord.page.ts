@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
@@ -19,43 +19,73 @@ export class DashbordPage implements OnInit {
   @ViewChild('doughnutCanvas') private doughnutCanvas: ElementRef;
   @ViewChild('lineCanvas') private lineCanvas: ElementRef;
   @ViewChild('Radarchart') private RadarCanvas: ElementRef;
-
-
   barChart: any;
   doughnutChart: any;
   lineChart: any;
   RadarChart : any ; 
+  result: any;
   
 constructor(
   private http :HttpClient ,
   private storage: Storage,
+  public httpClient: HttpClient,
+
   ) {
   //this.getData()
 
  }
+ getData(){
+  this.storage.get("token").then((val) =>{
+    let token=val;
+    console.log(token);
 
+  const headers ={
+    headers: new HttpHeaders({
+      'Authorization': 'token '+token
+    })
+  }
 
- 
+  this.httpClient.get<any>("http://127.0.0.1:8000/getCountOfAnnonceOfDB/",headers)
+  .subscribe(data => {
+    console.log(data);
+    this.result=data.data;
+    this.barChartMethod();
+    console.log("result", this.result)
+  })
 
+})
+}
+getData1(){
+  this.storage.get("token").then((val) =>{
+    let token=val;
+    console.log(token);
 
+  const headers ={
+    headers: new HttpHeaders({
+      'Authorization': 'token '+token
+    })
+  }
 
+  this.httpClient.get<any>("http://127.0.0.1:8000/getCountOfAnnonceOfOccasionCar/",headers)
+  .subscribe(data => {
+    console.log(data);
+    this.result=data.data;
+    this.doughnutChartMethod();
+    console.log("result", this.result)
+  })
 
-
- 
-
-
-
-
+})
+}
 
  barChartMethod() {
   // Now we need to supply a Chart element reference with an object that defines the type of chart we want to use, and the type of data we want to display.
   this.barChart = new Chart(this.barCanvas.nativeElement, {
     type: 'bar',
     data: {
-      labels: ['REAL ESTATE AFFER','JOBS',  'COMPUTER EQUIPMENT', 'CARS ',],
+      labels: ['CARS ','COMPUTER EQUIPMENT','REAL ESTATE AFFER','JOBS',  ,],
       datasets: [{
         label: 'LA REPARTION DES CATEGORIES SELON LE NOMBRE D NNONCES',
-        data: [28000, 11457, 11650, 500],
+        data: [this.result.nb_VoitureOccasion+this.result.nb_NewCar,  this.result.nb_MaterielleInformatique,  this.result.nb_Immobilier,this.result.nb_Emploi],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -94,7 +124,7 @@ doughnutChartMethod() {
       labels: ['AUDI', 'BMW', 'FORD', 'FIAT', 'JEEP','TOYOTA','AUTRE'],
       datasets: [{
         label: 'LES MARQUES DE VOITURE DANS NOTRE APPLICATION ',
-        data: [150, 85, 75, 100, 98,78,62],
+        data: [15, 85, 75, 100, 98,78,62],
         backgroundColor: [
           'rgba(255, 159, 64, 0.2)',
           'rgba(255, 99, 132, 0.2)',
@@ -147,26 +177,16 @@ lineChartMethod() {
   });
 }
 
-/*getData(){
-  this.http.get('http://127.0.0.1:8000/getMaterielleInformatique/').subscribe(res =>{
-    console.log('Res',res);
-  })
 
-}*/
 ngOnInit(){
   
-  //this.showChart();
+ this.getData();
   
 }
-
-
-
-
-
 //json data 
 async ngAfterViewInit() {
 //les types de graphe 
-  this.barChartMethod();
+  
   this.doughnutChartMethod();
   this.lineChartMethod();
   this.regionChart();
@@ -283,20 +303,6 @@ changeChart( event: any ) {
 addRandom( points: any ) : number {
   return Number(points) - Number( Math.floor((Math.random() * 100) + 1) );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*showChart() {
   var ctx = (<any>document.getElementById('yudhatp-chart')).getContext('2d');
   var chart = new Chart(ctx, {

@@ -1,5 +1,12 @@
 <ion-header>
-
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <ion-icon name="menu-outline" ></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
 </ion-header>
 
 <ion-content class="ion-padding">
@@ -7,43 +14,39 @@
    
     <ion-buttons slot="start">
       <ion-buttons class="backbtn" routerLink="/admin" routerDirection="back">
-        <img src="../../assets/back-dark.svg" />
+        
       </ion-buttons>
     </ion-buttons>
+
+    <ion-col class="ion-text-left" routerLink="/info"routerDirection=""> 
+      <img src="/assets/adduser.png"  />
+      <h1 class="font-bold"> </h1>
+      <div class=""></div>
+    </ion-col>
     <div class="form-container">
-      <h1>add member</h1>
+      <h1>ADD MEMBER</h1>
       <ion-item>
         <ion-label position="floating">Email</ion-label> 
         
         <ion-input type="text"   placeholder="champ obligatoir"  required="required"     (ionChange)="getemailUser(emailUser)" [(ngModel)]="emailUser"></ion-input>
       </ion-item>
+
       <ion-item>
-        <ion-label position="floating">firstNameUser </ion-label>
-        <ion-input type="text"   placeholder="champ obligatoir"  required="required" (ionChange)="getfirstNameUser(firstNameUser )" [(ngModel)]="firstNameUser "></ion-input>
+        <ion-label position="floating">USER Name </ion-label> 
+        
+        <ion-input type="text"   placeholder="champ obligatoir"  required="required"     (ionChange)="getemailUser(emailUser)" [(ngModel)]="emailUser"></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-label position="floating">lastNameUser </ion-label>
-        <ion-input type="text"   placeholder="champ obligatoir"  required="required" (ionChange)="getlastNameUser(lastNameUser )" [(ngModel)]="lastNameUser  "></ion-input>
-      </ion-item>
-      <ion-item>
      
-      
-        <ion-label position="floating">telUser </ion-label>
-        <ion-input type="text"   placeholder="champ obligatoir"  required="required"  (ionChange)="gettelUser(telUser )" [(ngModel)]="telUser  "></ion-input>
-      </ion-item>
       <ion-item>
-        <ion-label position="floating">dateOfBirth</ion-label>
-        <ion-input type="text"   placeholder="champ obligatoir"  required="required"    (ionChange)="getdateOfBirth(dateOfBirth )" [(ngModel)]="dateOfBirth  "></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">adress</ion-label>
-        <ion-input type="text"   placeholder="champ obligatoir"  required="required"   (ionChange)="getaddressUser(addressUser)" [(ngModel)]="addressUser"></ion-input>
-        <ion-icon  slot="end"></ion-icon>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Password</ion-label>
+        <ion-label position="floating">PASSSWORD</ion-label>
         <ion-input type="password"   placeholder="champ obligatoir"  required="required"   (ionChange)="getPassword(passwordUser )" [(ngModel)]="passwordUser "></ion-input>
-        <ion-icon name="eye" slot="end"></ion-icon>
+        
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating"> CONFIRM PASSSWORD</ion-label>
+        <ion-input type="password"   placeholder="champ obligatoir"  required="required"   (ionChange)="getPassword(passwordUser )" [(ngModel)]="passwordUser "></ion-input>
+        
       </ion-item>
 
       <ion-button (click)="signup()" expand="block" class="main-button">Add</ion-button>

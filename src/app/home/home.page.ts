@@ -4,8 +4,6 @@ import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 import { MenuController } from '@ionic/angular';
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -29,18 +27,18 @@ export class HomePage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.storage.create();
+   /* this.storage.create();
       this.storage.get("token").then((val) =>{
         console.log("testttt ",val);
         if (!val) {
-          this.menuCtrl.enable(false);
-          this.menu=0;
+          // this.menuCtrl.enable(false);
+          // this.menu=0;
+          this.router.navigate(['/login']);
         }
-      })
+      })*/
 
     
     this.categories = this.data.getCategories();
-   
     this.featuredProducts = this.data.getFeaturedProducts();
     this.bestSellProducts = this.data.getBestSellProducts();
 
@@ -51,7 +49,15 @@ export class HomePage implements OnInit {
       this.neufs=data;
     })*/
   }
+  logout(){
+    this.storage.remove('token').then((val)=>{
+      this.storage.remove('email').then((val)=>{
+  
+      })
+      this.router.navigate(['/login']);
 
+    })
+  }
 
 
 }

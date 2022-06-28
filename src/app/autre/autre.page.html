@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <title>LISTE OF CATEGORIES </title>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <ion-icon name="menu-outline" ></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="notification"routerLink="/notification">
+        <ion-icon name="notifications-outline" color="dark" ></ion-icon>
+      </ion-button>
+      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="new-students">
+    
+    <div class="title">
+        
+    </div>
+    <table>
+        <tr>
+        </tr>
+        <tr  *ngFor="let Listcat of cat">
+          <h3> <ion-icon name="folder-open-outline" size="large"></ion-icon>{{Listcat.nomCategorie}}</h3>
+            <td> <img src="assets\supp.png" (click)="delete(Listcat.nomCategorie)"></td>
+        </tr>
+        
+    </table>
+
+</div>
+
+
+</ion-content>

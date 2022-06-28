@@ -5,17 +5,13 @@
         <img src="../../assets/back-dark.svg" />
         
       </ion-buttons>
-      
     </ion-buttons>
-    
-    <ion-buttons slot="end">
-      <ion-button class="notification">
-        <ion-icon name="notifications-outline" color="dark"  size="large"></ion-icon>
-      </ion-button>
-      <ion-button class="logout">
-        <ion-icon name="log-out-outline" color="dark" size="large"  ></ion-icon>
-      </ion-button>
-    </ion-buttons>
+    <div class="search ion-padding">
+      <ion-item lines="none">
+        <ion-input placeholder="Search"(ionChange)="getnameEmploi(nameEmploi)" [(ngModel)]="nameEmploi" ></ion-input>
+        <ion-icon name="search-outline" slot="start" (click)= "search()"></ion-icon>
+      </ion-item>
+    </div>
   </ion-toolbar>
 </ion-header>
 
@@ -23,17 +19,7 @@
 
 
 
-  <h1 class="title">JOBS  </h1>
-
-  <div class="search ion-padding">
-    <ion-item lines="none">
-      <ion-input placeholder="Search Your Product"></ion-input>
-      <ion-icon name="search-outline" slot="start"></ion-icon>
-    </ion-item>
-  </div>
-
-
-
+  <h1 class="title"></h1>
   <ion-card mode="ios"  *ngFor="let job of offre">
     <ion-card-content>
       
@@ -43,25 +29,20 @@
           <ion-img [src]=" job.imageEmploi"></ion-img>
         </div>
   
-        <p>  ID:{{ job.id}}</p>
-        <p>{{ job.nameEmploi}}</p>
-      
-  
-        <p>{{ job.dateEmploi}}</p>
-        <p>{{ job.annoceEmploi}}</p>
-        <p>{{ job.villeEmploi}}</p>
+        <p></p>
+        <p><ion-icon name="people-circle-outline"></ion-icon>{{ job.nameEmploi}}</p>
+        <p> <ion-icon name="alarm-outline"></ion-icon>{{ job.dateEmploi}}</p>
+        <p> <ion-icon name="location-outline"></ion-icon>{{ job.annoceEmploi}}</p>
+        <p> <ion-icon name="pin-outline"></ion-icon>{{ job.villeEmploi}}</p>
 
         
 
         <div class="qty-selector">
           <ion-button fill="clear"routerLink="/addoffre">
                ADD NEW ANNONCE  </ion-button>
+               <ion-button fill="clear" href="https://www.offre-emploi.tn/">CHECK ANNONCE  </ion-button>
         </div>
       </div>
     </ion-card-content>
   </ion-card>
-
-  
-
-
  </ion-content>

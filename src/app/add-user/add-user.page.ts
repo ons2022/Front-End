@@ -39,24 +39,10 @@ export class AddUserPage implements OnInit {
     this.passwordUser=password;
   }
  
-  getemailUser(emailUser){
+  getemail(emailUser){
     this.emailUser=emailUser;
   }
-  getfirstNameUser(firstNameUser){
-    this.firstNameUser=firstNameUser;
-  }
-  getlastNameUser(lastNameUser){
-    this.lastNameUser=lastNameUser;
-  }
-  getdateOfBirth(dateOfBirth){
-    this.dateOfBirth=dateOfBirth;
-  }
-  getaddressUser(addressUser){
-    this.addressUser=addressUser;
-  }
-  gettelUser(telUser){
-    this.telUser=telUser;
-  }
+  
   signup() {
     var data;
     // Enabling Side Menu ki tecliki alihom yatlaalek el menu 
