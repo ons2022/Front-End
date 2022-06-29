@@ -12,6 +12,7 @@ import { Storage } from '@ionic/storage';
 export class DashbordPage implements OnInit {
   @ViewChild('chartCanvas') chartCanvas : ElementRef;
   data : any = [];
+  data1: any = [];
   canvasChart : Chart;
   //getvoiture:any = 80;
 //types de grphes
@@ -24,6 +25,8 @@ export class DashbordPage implements OnInit {
   lineChart: any;
   RadarChart : any ; 
   result: any;
+ listOfMarque:any ; 
+  listOfNumber: any;
   
 constructor(
   private http :HttpClient ,
@@ -34,6 +37,15 @@ constructor(
   //this.getData()
 
  }
+
+ ngOnInit(){
+  
+  this.getData();
+  this.getdata1();
+  this.getdata2();
+ }
+
+ 
  getData(){
   this.storage.get("token").then((val) =>{
     let token=val;
@@ -55,27 +67,9 @@ constructor(
 
 })
 }
-getData1(){
-  this.storage.get("token").then((val) =>{
-    let token=val;
-    console.log(token);
 
-  const headers ={
-    headers: new HttpHeaders({
-      'Authorization': 'token '+token
-    })
-  }
 
-  this.httpClient.get<any>("http://127.0.0.1:8000/getCountOfAnnonceOfOccasionCar/",headers)
-  .subscribe(data => {
-    console.log(data);
-    this.result=data.data;
-    this.doughnutChartMethod();
-    console.log("result", this.result)
-  })
 
-})
-}
 
  barChartMethod() {
   // Now we need to supply a Chart element reference with an object that defines the type of chart we want to use, and the type of data we want to display.
@@ -117,14 +111,41 @@ getData1(){
   });
 }
 
+getdata1(){
+  this.storage.get("token").then((val) =>{
+    let token=val;
+    console.log(token);
+
+  const headers ={
+    headers: new HttpHeaders({
+      'Authorization': 'token '+token
+    })
+  }
+
+  this.httpClient.get<any>("http://127.0.0.1:8000/getAllVoitureOccasionByMarque/",headers)
+  .subscribe(data => {
+    console.log(data);
+    this.data=data.data;
+    this.doughnutChartMethod();
+    console.log("data", this.data)
+    this.data.listOfMarque
+  })
+ 
+
+})
+//this.getdata1 = this.data.getdata1();
+}
 doughnutChartMethod() {
   this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
     type: 'doughnut',
     data: {
-      labels: ['AUDI', 'BMW', 'FORD', 'FIAT', 'JEEP','TOYOTA','AUTRE'],
+      labels: ['audi','BMW','BYD','Changan','Chery'],
       datasets: [{
         label: 'LES MARQUES DE VOITURE DANS NOTRE APPLICATION ',
-        data: [15, 85, 75, 100, 98,78,62],
+        data: [
+          this.data.Audi,this.data.BMW, this.data.BYD, this.data.Changan,this.data.Chery
+
+          ],
         backgroundColor: [
           'rgba(255, 159, 64, 0.2)',
           'rgba(255, 99, 132, 0.2)',
@@ -178,11 +199,7 @@ lineChartMethod() {
 }
 
 
-ngOnInit(){
-  
- this.getData();
-  
-}
+
 //json data 
 async ngAfterViewInit() {
 //les types de graphe 
@@ -242,6 +259,31 @@ async ngAfterViewInit() {
     value : 'bar'
   }});
 }
+getdata2(){
+  this.storage.get("token").then((val) =>{
+    let token=val;
+    console.log(token);
+
+  const headers ={
+    headers: new HttpHeaders({
+      'Authorization': 'token '+token
+    })
+  }
+
+  this.httpClient.get<any>("http://127.0.0.1:8000/getAllimmobiliereByville/",headers)
+  .subscribe(data => {
+    console.log(data);
+    this.data=data.data;
+    this.regionChart();
+    console.log("data", this.data)
+    this.data.listOfMarque
+  })
+ 
+
+})
+//this.getdata1 = this.data.getdata1();
+}
+
 regionChart(){
   new Chart(document.getElementById("radar-chart"), {
     type: 'radar',
@@ -255,7 +297,8 @@ regionChart(){
           borderColor: "rgba(179,181,198,1)",
           pointBorderColor: "#fff",
           pointBackgroundColor: "rgba(179,181,198,1)",
-          data: [8.77,55.61,21.69,6.62,6.82]
+          data: [this.data.hammamet,this.data.monastir,this.data.dahmani,this.data.ksar,this.data.teboulba
+          ]
         }, 
         
         {
@@ -274,6 +317,16 @@ regionChart(){
           borderColor: "rgba(255,99,132,1)",
           pointBorderColor: "#fff",
           pointBackgroundColor: "rgba(255,99,132,1)",
+          data: [25.48,54.16,7.61,8.06,4.45]
+        },
+
+        {
+          label: "45678",
+          fill: true,
+          backgroundColor: "rgba(275,89,172,0.2)",
+          borderColor: "rgba(265,69,172,1)",
+          pointBorderColor: "#fff",
+          pointBackgroundColor: "rgba(245,79,152,1)",
           data: [25.48,54.16,7.61,8.06,4.45]
         },
         
